@@ -16,7 +16,7 @@ jobs:
       - name: Notify on Push
         if: github.event_name == 'push'
         run: |
-          curl -H "Content-Type: application/json" -d "{\"text\": \"🔔 New Push to Main: ${GITHUB_REF} by ${GITHUB_ACTOR}.<br/> Commit message: '${{ github.event.commits[0].message }}'.\"}" ${{ secrets.M365_WEBHOOK_URL }}
+          curl -H "Content-Type: application/json" -d "{\"text\": \"🔔 New Push to Main🔔<br/> ${GITHUB_REF} by ${GITHUB_ACTOR}.<br/> Commit message: '${{ github.event.commits[0].message }}'.\"}" ${{ secrets.M365_WEBHOOK_URL }}
         env:
           GITHUB_REF: ${{ github.ref }}
           GITHUB_ACTOR: ${{ github.actor }}
@@ -24,4 +24,4 @@ jobs:
       - name: Notify on Pull Request
         if: github.event_name == 'pull_request'
         run: |
-          curl -H "Content-Type: application/json" -d "{\"text\": \"🔔 Pull Request Event: ${{ github.event.pull_request.title }} by ${{ github.event.pull_request.user.login }}.<br/> Action: ${{ github.event.action }}, URL: ${{ github.event.pull_request.html_url }}.\"}" ${{ secrets.M365_WEBHOOK_URL }}
+          curl -H "Content-Type: application/json" -d "{\"text\": \"🔔 Pull Request Event🔔<br/> ${{ github.event.pull_request.title }} by ${{ github.event.pull_request.user.login }}.<br/> Action: ${{ github.event.action }}, URL: ${{ github.event.pull_request.html_url }}.\"}" ${{ secrets.M365_WEBHOOK_URL }}
