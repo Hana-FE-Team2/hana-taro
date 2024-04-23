@@ -8,4 +8,4 @@ jobs:
     steps:
       - name: Send notification to Microsoft 365
         run: |
-          curl -H 'Content-Type: application/json' -d '{"text": "새로운 커밋이 발생했습니다! \n 수정자: ${{ github.actor }}"}' ${{secrets.M365_WEBHOOK_URL}}
+          curl -H 'Content-Type: application/json' -d '{"text": "새로운 커밋이 발생했습니다! | Commit message: ${{ github.event.head_commit.message }} |수정자: ${{ github.actor }}"}' ${{secrets.M365_WEBHOOK_URL}}
