@@ -16,7 +16,7 @@ jobs:
       - name: Notify on Push
         if: github.event_name == 'push'
         run: |
-          curl -H "Content-Type: application/json" -d "{\"text\": \"🔔 New Push to Main🔔<br/> ${GITHUB_REF} by ${GITHUB_ACTOR}.<br/> Commit message: '${{ github.event.commits[0].message }}'.\"}" ${{ secrets.M365_WEBHOOK_URL }}
+          curl -H "Content-Type: application/json" -d "{\"text\": \"<h2>🔔 New Push to Main🔔</h2><br/> ${GITHUB_REF} by ${GITHUB_ACTOR}.<br/> Commit message: '${{ github.event.commits[0].message }}'.\"}" ${{ secrets.M365_WEBHOOK_URL }}
         env:
           GITHUB_REF: ${{ github.ref }}
           GITHUB_ACTOR: ${{ github.actor }}
