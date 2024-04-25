@@ -1,12 +1,18 @@
 요건 공통
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ㅋㅋ ㅅㄱ
 이짱진
 =======
+=======
+>>>>>>> Stashed changes
 
 ㅋㅋ ㅅㄱ
 히히 
 양진안 stash
 히히 
 양진안 stash
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
