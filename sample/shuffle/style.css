@@ -1,0 +1,75 @@
+/* styles.css */
+body,
+html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+.title {
+  padding-top: 20px;
+  text-align: center;
+  font-size: 25px;
+}
+.center-card,
+.left-card,
+.right-card {
+  position: absolute;
+  z-index: 1;
+}
+.left-card {
+  /* left: 100px; */
+}
+.right-card {
+  /* right: 100px; */
+}
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 100px;
+  height: 175px;
+  background-color: #ccc;
+  margin: 0 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 1s ease;
+}
+
+.left-card.active .card {
+  transform: translateY(175px);
+}
+.right-card.active .card {
+  transform: translateX(-175px);
+}
+.btn {
+  margin-top: 25px;
+  width: 100px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 20px 10px 20px;
+  background-color: darkcyan;
+  color: white;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  transition: background-color 0.5s;
+}
+.btn:hover {
+  cursor: pointer;
+  background-color: gainsboro;
+  color: darkcyan;
+}
+.btn.active {
+  transition: background-color 0.5s;
+}
