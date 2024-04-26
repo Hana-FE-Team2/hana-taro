@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Letter Animation</title>
+    <style>
+      #text-container {
+        font-size: 24px;
+        font-family: Arial, sans-serif;
+        white-space: nowrap;
+      }
+      #text-container span {
+        display: inline-block; /* Ensures each letter occupies its own line */
+        opacity: 0; /* Initially hide each letter */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="text-container">Hello, world!</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var text = $('#text-container').text();
+        var letters = text.split('');
+        $('#text-container').empty();
+
+        // Function to animate letters one by one
+        function animateLetters(index) {
+          if (index < letters.length) {
+            $('<span>')
+              .text(letters[index])
+              .appendTo('#text-container')
+              .delay(200)
+              .animate({ opacity: 1 }, 300, function () {
+                animateLetters(index + 1); // Recursively call animateLetters for the next letter
+              });
+          }
+        }
+
+        // Start animating letters
+        animateLetters(0);
+      });
+    </script>
+  </body>
+</html>
