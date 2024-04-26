@@ -4,8 +4,186 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
+  <style>
+    * {
+      border: solid 1px;
+    }
+    .container {
+      /* background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat; */
+      height: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .backgroud {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 90%;
+      height: 90%;
+      min-height: 40%;
+      background-image: url("./img/main/mainPageBackground.jpg");
+    }
+
+    /* magicBall */
+    .magicball {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 7vw;
+      height:7vw;
+      min-height: 10px;
+      min-width: 10px;
+      position: absolute;
+      top : 49%;
+      left: 45.8%;
+    }
+    .magicball1 {
+      background-image: url("./img/main/magicBall.png");
+      /* transition: all 0.5s ease; */
+      border-radius: 50%;
+    }
+    .magicball:hover {
+      box-shadow: -10px -10px 40px rgba(132, 52, 135, 0.9),
+                  4px 4px 6px rgba(0, 0, 0, 0.2),
+                  inset -1px -1px 4px rgba(255, 255, 255, 0.05),
+                  inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+      color : rgb(132, 52, 135);
+    }
+
+    .magicball1.magicball-hover {
+      animation: glow 1.5s linear 3;
+    }
+
+    @keyframes glow {
+      0% {
+        filter: hue-rotate(1);
+      }
+      50% {
+        filter: saturate(3);
+      }
+      100% {
+        filter: saturate(1);
+      }
+    }
+    /* card */
+      #cards {
+        perspective:1000px;
+        position: absolute;
+        left: 20%;
+        top : 70%;
+        transform: rotate(40deg);
+      }
+      .card {
+        width: 8vw;
+        height: 8vh;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        backface-visibility: hidden;
+        box-sizing: border-box;
+        transition: 1s;
+      }
+      #cards .card.back {
+        background-image: url("img/component/cardBack.jpg");
+        position: absolute;
+        transform: rotateY(0deg);
+      }
+      #cards .card.front {
+        background-image: url("img/cards/death.jpg");
+        transform: rotateY(-180deg);
+      }
+      /* #cards .card.back.clicked{
+        transform: rotateY(180deg);
+      }
+      #cards .card.front.clicked{
+        transform: rotateY(0deg);
+      } */
+      #cards.clicked .card.back{
+        transform: rotateY(180deg);
+      }
+      #cards.clicked .card.front{
+        transform: rotateY(0deg);
+      }
+
+      #cards.card1 {
+        /* background-image: url(/img/cards/justice.jpg); */
+        left: 35%;
+        top : 65%;
+        transform: rotate(0deg);
+      }
+      
+
+      
+  </style>
 </head>
-<body>
-  
+<body style="height: 100vh">
+  <!-- backgroud -->
+  <div class="container container1">
+    <div class="backgroud">
+      <!-- magicball -->
+    <div class="magicball magicball1"></div>
+    <!-- cards -->
+    <!-- <div id="card-box"> -->
+    <div id="cards">
+      <div class="card back"></div>
+      <div class="card front"></div>
+    </div>
+    <div id="cards" class="card1">
+      <div class="card back"></div>
+      <div class="card front"></div>
+    </div>
+    <!-- <div id="cards" class="card1">
+      <div class="card back"></div>
+      <div class="card front"></div>
+    </div> -->
+    <!-- </div> -->
+    <!-- <div id="cards">
+      <div class="card back"></div>
+      <div class="card front"></div>
+    </div> -->
+    </div>
+
+  </div>
+
 </body>
+
+  <script>
+    const magicBall = document.querySelector(".magicball1")
+    magicBall.addEventListener("mouseover", ()=>{
+      magicBall.classList.add("magicball-hover")
+    })
+    magicBall.addEventListener("mouseout", () => {
+      magicBall.classList.remove("magicball-hover")
+    })
+
+    // cards
+    const cards = document.querySelectorAll("#cards")
+    const card = document.querySelectorAll(".card")
+
+    cards.forEach((ele) => {
+      console.log(ele)
+      ele.addEventListener('click', () => {
+        ele.classList.contains("clicked") ?  ele.classList.remove("clicked") : ele.classList.add("clicked")
+      })
+    })
+
+    // cards.addEventListener('click', () => {
+    //   console.log("card click")
+    //   card.forEach((ele) => {
+    //     console.log("dd")
+    //     console.log(ele.classList)
+    //     ele.classList.contains("clicked") ?  ele.classList.remove("clicked") : ele.classList.add("clicked")
+    //   })
+    // }
+    // )
+
+    
+
+  </script>
 </html>
