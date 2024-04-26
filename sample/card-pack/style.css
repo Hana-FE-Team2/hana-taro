@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+}
+.container {
+  background-color: #482931;
+  height: 100%;
+  overflow: hidden;
+}
+.container1 {
+  height: 100%;
+  background-image: url("../../img/component/cardPlate.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.card {
+  height: 50%;
+  background-image: url("../../img/component/cardBack.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex: 1;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 2);
+  transition: transform 1.5s ease;
+}
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
