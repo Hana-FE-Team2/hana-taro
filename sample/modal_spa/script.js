@@ -15,7 +15,7 @@ $(document).ready(function () {
       // Insert modal content into the modal div
       modal.html(data);
       // Display the first message from the list
-      $('#modalMessage').text(messageList.eq(0).text());
+      $('#modal-message').text(messageList.eq(0).text());
       modal.fadeIn();
     });
   }
@@ -37,7 +37,7 @@ $(document).ready(function () {
     nextButtonClickCount++;
 
     // Change the message inside the modal
-    $('#modalMessage').text(messageList.eq(nextButtonClickCount).text());
+    $('#modal-message').text(messageList.eq(nextButtonClickCount).text());
 
     // Check if the maximum click count has been reached
     if (nextButtonClickCount >= maxNextButtonClicks - 1) {
