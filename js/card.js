@@ -83,7 +83,7 @@ async function makeShuffle() {
   } else {
     await shuffle2();
   }
-  messages = ['카드가 섞였습니다.'];
+  messages = ['카드를 다시 섞겠습니까.....?'];
   // $('#open-modal').click();
   $('#open-modal-multi').click();
 }
