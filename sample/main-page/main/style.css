@@ -1,0 +1,208 @@
+* {
+  /* border: solid 1px; */
+}
+.container {
+  
+  background-color: #1D1B43;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.frame {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../../img/main/frame.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+.backgroud {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 80%;
+  height: 80%;
+  /* min-height: 40%; */
+  background-image: url("../../../img/main/main_page_newcolor.jpg");
+}
+.backgroud.clicked{
+  animation: mouse-movement 0.5s linear 5;
+}
+@keyframes mouse-movement {
+  0% {
+    background-image: url("../../../img/main/main_page_newcolor.jpg");
+  }
+  100% {
+    background-image: url("../../../img/main/main_page_mousemove.jpg");
+  }
+  
+}
+/* magicBall */
+.magicball {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 6vw;
+  height:6vw;
+  min-height: 10px;
+  min-width: 10px;
+  position: absolute;
+  top : 48%;
+  left: 46.9%;
+}
+.magicball1 {
+  background-image: url("../../../img/main/magicBall.png");
+  border-radius: 50%;
+}
+.magicball:hover {
+  box-shadow: -10px -10px 40px rgba(132, 52, 135, 0.9),
+              4px 4px 6px rgba(0, 0, 0, 0.2),
+              inset -1px -1px 4px rgba(255, 255, 255, 0.05),
+              inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+  color : rgb(132, 52, 135);
+}
+
+.magicball1.magicball-hover {
+  animation: glow 1.5s linear 3;
+}
+
+@keyframes glow {
+  0% {
+    filter: hue-rotate(1);
+  }
+  50% {
+    filter: saturate(3);
+  }
+  100% {
+    filter: saturate(1);
+  }
+}
+
+
+/* card */
+  /* card back front를 담은 div */
+  #cards {
+    /* perspective를 주면 좀더 원근감을 줄 수 있음 */
+    perspective:1000px;
+    position: absolute;
+    width: 6vh;
+    height: 5vw;
+  }
+  .card {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    /* 뒤에 카드가 안보이게 됨 */
+    background-repeat: no-repeat;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    transition: 1s;
+    box-shadow : -5px 5px 5px rgba(23, 23, 23, 0.76);
+  }
+
+  /* 카드 뒷면 기본*/
+  #cards .card.back {
+    background-image: url("../../../img/component/hanaCardBackFit.png");
+    /* position absolute를 적용해 back과 fornt의 위치를 주게됨 */
+    position: absolute; 
+    transform: rotateY(0deg);
+  }
+  /* 카드 앞면 기본 */
+  #cards .card.front {
+    background-image: url("../../../img/cards/death.jpg");
+    transform: rotateY(-180deg);
+  }
+  /* 클릭되었을 떄 효과 */
+  #cards.clicked .card.back{
+    transform: rotateY(180deg);
+  }
+  /* 클릭되었을 떄 효과 */
+  #cards.clicked .card.front{
+    transform: rotateY(0deg);
+  }
+
+  #cards {
+    left: 25%;
+    top : 70%;
+    transform: rotate(40deg);
+  }
+  #cards.card1 {
+    /* background-image: url(/img/cards/Strength.jpg); */
+    left: 35%;
+    top : 65%;
+    transform: rotate(20deg);
+  }
+  #cards.card1 .card.front {
+    background-image: url("../../../img/cards/Strength.jpg");
+  }
+
+  #cards.card2 {
+    left: 50%;
+    top : 75%;
+    transform: rotate(-30deg);
+  }
+  #cards.card2 .card.front {
+    background-image: url("../../../img/cards/temperance.png");
+  }
+  #cards.card3 {
+    left: 60%;
+    top : 70%;
+    transform: rotate(-70deg);
+  }
+  #cards.card3 .card.front {
+    background-image: url("../../../img/cards/theMoon.jpg");
+  }
+  #cards.card4 {
+    left: 70%;
+    top : 65%;
+    transform: rotate(-50deg);
+  }
+  #cards.card4 .card.front {
+    background-image: url("../../../img/cards/theStar.jpg");
+  }
+
+  .modal {
+    margin: 0;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-bg {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vh;
+    height: 40vh;
+    background-image: url('../../../img/component/speechBubble.jpg');
+  }
+  
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+  }
+  
+  #modal-message {
+    color: #fff;
+    font-size: 1.6rem;
+    text-align: center;
+  }
