@@ -1,14 +1,15 @@
 body {
   margin: 0;
-  height: 100vh;
 }
 .container {
   background-color: #482931;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
   background-image: url('../img/component/cardPlate.jpg');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100%;
 }
 
 .modal {
@@ -50,22 +51,17 @@ body {
   font-size: 1.8rem;
   text-align: center;
 }
-
 .card {
-  height: 50%;
-  background-image: url('../img/component/cardBack.jpg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  flex: 1;
   position: absolute;
+  transition: transform 1.5s ease;
+  width: 200px;
+  height: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
   left: 0px;
   right: 0px;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 2);
-  transition: transform 1s ease;
 }
 
 .card:hover {
@@ -79,5 +75,27 @@ body {
   align-items: center;
   flex-direction: column;
   height: 100%;
-  position: relative;
+}
+
+@media all and ((min-width: 768px) and (max-width: 1023px)),
+  ((min-height: 541px) and (max-height: 640px)) {
+  .card {
+    width: 150px;
+    height: 225px;
+  }
+}
+/* 해상도 ~ 767px */
+@media all and (min-width: 576px) and (max-width: 767px),
+  ((min-height: 420px) and (max-height: 540px)) {
+  .card {
+    width: 100px;
+    height: 150px;
+  }
+}
+/* 해상도 ~ 767px */
+@media all and (max-width: 575px), (max-height: 419px) {
+  .card {
+    width: 50px;
+    height: 75px;
+  }
 }
