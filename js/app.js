@@ -3,8 +3,22 @@ $(function () {
 
   function openModal(messageList) {
     const modal = $('#modal');
-    // console.log('messageList:', messageList);
     $.get('modal.html', function (data) {
+      modal.html(data);
+      const messageText = messageList[nextButtonClickCount];
+      const messageTextWithBr = messageText.replace(/\n/g, '<br>');
+
+      $('#modal-message').html(messageTextWithBr);
+
+      animateLetters($('#modal-message'));
+
+      modal.fadeIn();
+    });
+  }
+
+  function openModalMulti(messageList) {
+    const modal = $('#modal');
+    $.get('modal-multi.html', function (data) {
       modal.html(data);
       const messageText = messageList[nextButtonClickCount];
       const messageTextWithBr = messageText.replace(/\n/g, '<br>');
@@ -22,14 +36,18 @@ $(function () {
   }, 2000);
 
   // 모달 열기 버튼 클릭 시
-  $('#openModal').on('click', function () {
+  $('#open-modal').on('click', function () {
     openModal(messages);
+    nextButtonClickCount = 0;
+  });
+
+  $('#open-modal-multi').on('click', function () {
+    openModalMulti(messages);
     nextButtonClickCount = 0;
   });
 
   // 다음 메시지 버튼 클릭 시
   $(document).on('click', '#nextModal', function () {
-    nextButtonClickCount++;
 
     if (nextButtonClickCount >= messages.length) {
       setTimeout(function () {
@@ -46,6 +64,26 @@ $(function () {
     animateLetters($('#modal-message'));
   });
 
+  $(document).on('click', '#shuffle-again', function () {
+    $('#modal').fadeOut();
+    makeShuffle();
+  });
+
+  $(document).on('click', '#move-next-page', function () {
+    $('#modal').fadeOut();
+    loadNextContent('index.html');
+  });
+
+  $(document).on('mouseover', '.card', function () {
+    this.hoverTimeout = setTimeout(() => {
+      makeShuffle();
+    }, 2000);
+  });
+
+  $(document).on('mouseout', '.card', function () {
+    clearTimeout(this.hoverTimeout);
+  });
+
   // 모달 메시지의 글자 크기를 창 크기에 맞춰 조절
   $(window).resize(function () {
     var modalContentWidth = $('.modal-content').width();
@@ -56,6 +94,12 @@ $(function () {
 
   $(window).trigger('resize');
 });
+
+function loadNextContent(nextPage) {
+  $.get(nextPage, function (data) {
+    $('body').html(data);
+  });
+}
 
 // 모달에 띄울 메시지 애니메이션
 function animateLetters(element) {
@@ -154,81 +198,74 @@ for (let i = 0; i < $('.card').length; i++) {
     });
 }
 
-// 셔플1: 좌우 셔플
-function shuffle1() {
-  const card = document.querySelectorAll('.card');
-  const SPEED = 100;
-  const DISTANCE = 250;
-
-  for (let i = 0; i < card.length; i++) {
-    setTimeout(() => {
-      // 짝수 번째, 홀수 번째 카드에 따라 좌우로 분산시킴
-      if (i % 2 == 0) card[i].style.transform = `translate(${DISTANCE}px)`;
-      else card[i].style.transform = `translate(-${DISTANCE}px)`;
-    }, SPEED * i);
+async function makeShuffle() {
+  var random = Math.floor(Math.random() * 2);
+  if (random == 0) {
+    await shuffle1();
+  } else {
+    await shuffle2();
   }
-  setTimeout(() => {
-    // 가운데로 이동
-    for (let i = 0; i < card.length; i++) {
-      setTimeout(() => {
-        card[i].style.transform = `translate(0px)`;
-      }, SPEED * i);
-    }
-  }, SPEED * card.length);
-  messages.push('셔플1: 좌우 셔플');
-  $('modal').click();
+  messages = ['카드가 섞였습니다.'];
+  $('#open-modal-multi').click();
 }
 
-// 셔플2: 원형으로 셔플
-// function shuffle2() {
-//   const getRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
-//   const SHUFFLE_NUM = 3; // 셔플 횟수
-//   const TIME = 750; // 셔플 애니메이션 시간
-//   const card = document.querySelectorAll('.card');
-//   for (let j = 0; j < SHUFFLE_NUM; j++) {
-//     for (let i = 0; i < card.length; i++) {
-//       // 픽셀 단위 설정
-//       let randomX = getRandom(-600, 600); // x축 범위
-//       let randomY = getRandom(-150, 150); // y축 범위
-//       let randomAngle = getRandom(-70, 70); // 카드 섞일 각도 설정
-//       setTimeout(() => {
-//         card[
-//           i
-//         ].style.cssText = `transform: rotate(${randomAngle}deg) translate(${randomX}px, ${randomY}px)`;
-//       }, TIME * (i + 1));
-//     }
-//   }
-//   setTimeout(() => {
-//     // 가운데로 이동
-//     for (let i = 0; i < card.length; i++) {
-//       setTimeout(() => {
-//         card[i].style.cssText = `transform: rotate(0deg) translate(0px, 0px)`;
-//       }, TIME * (SHUFFLE_NUM + 1));
-//     }
-//   }, TIME * card.length);
-// }
+function shuffle1() {
+  return new Promise((resolve) => {
+    const card = document.querySelectorAll('.card');
+    const SPEED = 100;
+    const DISTANCE = 250;
+    let maxTimeout = 0;
+
+    for (let i = 0; i < card.length; i++) {
+      setTimeout(() => {
+        card[i].style.transform =
+          i % 2 === 0
+            ? `translate(${DISTANCE}px)`
+            : `translate(-${DISTANCE}px)`;
+      }, SPEED * i);
+      maxTimeout = SPEED * i;
+    }
+
+    setTimeout(() => {
+      for (let i = 0; i < card.length; i++) {
+        setTimeout(() => {
+          card[i].style.transform = 'translate(0px)';
+          if (i === card.length - 1) resolve(); // Resolve when the last card is reset
+        }, SPEED * i);
+      }
+    }, maxTimeout + SPEED);
+  });
+}
+
+// Improved shuffle2 with async-await and promises
 const getRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
 let shuffle2 = async () => {
-  const SHUFFLE_NUM = 3; // 셔플 횟수
-  const TIME = 750; // 셔플 애니메이션 시간
-  const card = document.querySelectorAll('.card');
-  for (let j = 0; j < SHUFFLE_NUM; j++) {
-    for (let i = 0; i < card.length; i++) {
-      // 픽셀 단위 설정
-      let randomX = getRandom(-600, 600); // x축 범위
-      let randomY = getRandom(-150, 150); // y축 범위
-      let randomAngle = getRandom(-70, 70); // 카드 섞일 각도 설정
-      setTimeout(() => {
-        card[
-          i
-        ].style.cssText += `transform: rotate(${randomAngle}deg) translate(${randomX}px, ${randomY}px)`;
-      }, TIME * (j + 1));
+  return new Promise(async (resolve) => {
+    const SHUFFLE_NUM = 3; // 셔플 횟수
+    const TIME = 750; // 셔플 애니메이션 시간
+    const card = document.querySelectorAll('.card');
+    for (let j = 0; j < SHUFFLE_NUM; j++) {
+      for (let i = 0; i < card.length; i++) {
+        let randomX = getRandom(-600, 600);
+        let randomY = getRandom(-150, 150);
+        let randomAngle = getRandom(-70, 70);
+        setTimeout(() => {
+          card[
+            i
+          ].style.cssText += `transform: rotate(${randomAngle}deg) translate(${randomX}px, ${randomY}px)`;
+        }, TIME * (j + 1));
+      }
     }
-  }
-  // 가운데로 이동
-  for (let i = 0; i < card.length; i++) {
+
     setTimeout(() => {
-      card[i].style.cssText += `transform: rotate(0deg) translate(0px, 0px)`;
+      for (let i = 0; i < card.length; i++) {
+        setTimeout(() => {
+          card[
+            i
+          ].style.cssText += `transform: rotate(0deg) translate(0px, 0px)`;
+          if (i === card.length - 1) resolve(); // Resolve when the last reset occurs
+        }, TIME);
+      }
     }, TIME * (SHUFFLE_NUM + 1));
-  }
+  });
 };
