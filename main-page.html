@@ -7,45 +7,64 @@
 
   <style>
     * {
-      border: solid 1px;
+      /* border: solid 1px; */
     }
     .container {
-      /* background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat; */
+      
+      background-color: #1D1B43;
       height: 100%;
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-
+    .frame {
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url("./img/main/frame.png");
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    } 
     .backgroud {
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
-      width: 90%;
-      height: 90%;
-      min-height: 40%;
-      background-image: url("./img/main/mainPageBackground.jpg");
+      width: 80%;
+      height: 80%;
+      /* min-height: 40%; */
+      background-image: url("./img/main/main_page_newcolor.jpg");
     }
-
+    .backgroud.clicked{
+      animation: mouse-movement 0.5s linear 3;
+    }
+    @keyframes mouse-movement {
+      0% {
+        background-image: url(./img/main/main_page_newcolor.jpg);
+      }
+      100% {
+        background-image: url(./img/main/main_page_mousemove.jpg);
+      }
+      
+    }
     /* magicBall */
     .magicball {
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
-      width: 7vw;
-      height:7vw;
+      width: 6vw;
+      height:6vw;
       min-height: 10px;
       min-width: 10px;
       position: absolute;
-      top : 49%;
-      left: 45.8%;
+      top : 48%;
+      left: 46.9%;
     }
     .magicball1 {
       background-image: url("./img/main/magicBall.png");
-      /* transition: all 0.5s ease; */
       border-radius: 50%;
     }
     .magicball:hover {
@@ -71,82 +90,123 @@
         filter: saturate(1);
       }
     }
+    
+
     /* card */
+      /* card back front를 담은 div */
       #cards {
+        /* perspective를 주면 좀더 원근감을 줄 수 있음 */
         perspective:1000px;
         position: absolute;
-        left: 20%;
-        top : 70%;
-        transform: rotate(40deg);
+        width: 6vh;
+        height: 5vw;
       }
       .card {
-        width: 8vw;
-        height: 8vh;
+        width: 100%;
+        height: 100%;
         background-size: contain;
         background-position: center;
+        /* 뒤에 카드가 안보이게 됨 */
         background-repeat: no-repeat;
         backface-visibility: hidden;
         box-sizing: border-box;
         transition: 1s;
+        box-shadow : -5px 5px 5px rgba(23, 23, 23, 0.76);
       }
+
+      /* 카드 뒷면 기본*/
       #cards .card.back {
-        background-image: url("img/component/cardBack.jpg");
-        position: absolute;
+        background-image: url("/img/component/hanaCardBackFit.png");
+        /* position absolute를 적용해 back과 fornt의 위치를 주게됨 */
+        position: absolute; 
         transform: rotateY(0deg);
       }
+      /* 카드 앞면 기본 */
       #cards .card.front {
         background-image: url("img/cards/death.jpg");
         transform: rotateY(-180deg);
       }
-      /* #cards .card.back.clicked{
-        transform: rotateY(180deg);
-      }
-      #cards .card.front.clicked{
-        transform: rotateY(0deg);
-      } */
+      /* 클릭되었을 떄 효과 */
       #cards.clicked .card.back{
         transform: rotateY(180deg);
       }
+      /* 클릭되었을 떄 효과 */
       #cards.clicked .card.front{
         transform: rotateY(0deg);
       }
 
+      #cards {
+        left: 25%;
+        top : 70%;
+        transform: rotate(40deg);
+      }
       #cards.card1 {
-        /* background-image: url(/img/cards/justice.jpg); */
+        /* background-image: url(/img/cards/Strength.jpg); */
         left: 35%;
         top : 65%;
-        transform: rotate(0deg);
+        transform: rotate(20deg);
       }
-      
+      #cards.card1 .card.front {
+        background-image: url(/img/cards/Strength.jpg);
+      }
 
-      
+      #cards.card2 {
+        left: 50%;
+        top : 75%;
+        transform: rotate(-30deg);
+      }
+      #cards.card2 .card.front {
+        background-image: url(/img/cards/temperance.png);
+      }
+      #cards.card3 {
+        left: 60%;
+        top : 70%;
+        transform: rotate(-70deg);
+      }
+      #cards.card3 .card.front {
+        background-image: url(/img/cards/theMoon.jpg);
+      }
+      #cards.card4 {
+        left: 70%;
+        top : 65%;
+        transform: rotate(-50deg);
+      }
+      #cards.card4 .card.front {
+        background-image: url(/img/cards/theStar.jpg);
+      }
   </style>
 </head>
 <body style="height: 100vh">
-  <!-- backgroud -->
-  <div class="container container1">
-    <div class="backgroud">
-      <!-- magicball -->
-    <div class="magicball magicball1"></div>
-    <!-- cards -->
-    <!-- <div id="card-box"> -->
-    <div id="cards">
-      <div class="card back"></div>
-      <div class="card front"></div>
-    </div>
-    <div id="cards" class="card1">
-      <div class="card back"></div>
-      <div class="card front"></div>
-    </div>
-    <!-- <div id="cards" class="card1">
-      <div class="card back"></div>
-      <div class="card front"></div>
-    </div> -->
-    <!-- </div> -->
-    <!-- <div id="cards">
-      <div class="card back"></div>
-      <div class="card front"></div>
-    </div> -->
+  <!-- container -->
+  <div class="container">
+    <!-- frame -->
+    <div class="frame">
+        <!-- <div class="backgroud"> -->
+        <div class="backgroud">
+          <!-- magicball -->
+          <div class="magicball magicball1"></div>
+          <!-- cards -->
+          <div id="cards">
+            <div class="card back"></div>
+            <div class="card front"></div>
+          </div>
+          <div id="cards" class="card1">
+            <div class="card back"></div>
+            <div class="card front"></div>
+          </div>
+          <div id="cards" class="card2">
+            <div class="card back"></div>
+            <div class="card front"></div>
+          </div>
+          <div id="cards" class="card3">
+            <div class="card back"></div>
+            <div class="card front"></div>
+          </div>
+          <div id="cards" class="card4">
+            <div class="card back"></div>
+            <div class="card front"></div>
+          </div>  
+      </div>
     </div>
 
   </div>
@@ -165,23 +225,26 @@
     // cards
     const cards = document.querySelectorAll("#cards")
     const card = document.querySelectorAll(".card")
-
+    // const clickedCard = document.querySelectorAll("#cards.clicked")
     cards.forEach((ele) => {
       console.log(ele)
       ele.addEventListener('click', () => {
+        const clickedCard = document.querySelectorAll("#cards.clicked")
         ele.classList.contains("clicked") ?  ele.classList.remove("clicked") : ele.classList.add("clicked")
+        console.log(document.querySelectorAll("#cards.clicked").length)
+        if (clickedCard.length+1 >= 4) {
+          clickedCard.forEach((elem)=> elem.classList.remove("clicked"))
+          document.querySelector("#cards.clicked").classList.remove("clicked")
+        }
       })
     })
 
-    // cards.addEventListener('click', () => {
-    //   console.log("card click")
-    //   card.forEach((ele) => {
-    //     console.log("dd")
-    //     console.log(ele.classList)
-    //     ele.classList.contains("clicked") ?  ele.classList.remove("clicked") : ele.classList.add("clicked")
-    //   })
-    // }
-    // )
+    // mouse-movement
+    const background = document.querySelector(".backgroud")
+    background.addEventListener('click', () => {
+      background.classList.contains("clicked") ? background.classList.remove("clicked") : background.classList.add("clicked") 
+    })
+
 
     
 
