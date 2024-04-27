@@ -3,18 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body style="height: 100vh">
     <div class="container">
+      <!-- 바로 아랫줄은 나한테 필요 없는데 @장규은 한테 필요할 거 같아서 우선 넣어놨어. 어차피 display:none이라 -->
       <button id="open-modal" style="display: none"></button>
+
       <button id="open-modal-multi" style="display: none"></button>
       <div class="cards-wrapper">
         <img src="./img/component/cardBack.jpg" alt="" class="card" id="0" />
@@ -120,17 +116,40 @@
           id="20"
         /><img src="./img/component/cardBack.jpg" alt="" class="card" id="21" />
       </div>
+      <!-- 모달을 띄우기 위한 빈 div -->
       <div id="modal" class="modal"></div>
     </div>
   </body>
   <script></script>
+  <!-- jquery 사용 선언 -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
   <script src="/js/app.js"></script>
   <script src="/js/card.js"></script>
   <script src="/js/modal.js"></script>
   <script type="text/javascript">
+    // 페이지 로딩 이후, 2초 이내에 띄울 메시지 목록
+    // case 1) 띄울 메시지가 없는 경우
+    // var messages = [];
+
+    // case 2) 띄울 메시지가 있는 경우
+    // var messages = [
+    //   '메시지 1', '메시지 2'
+    // ];
+
+    // @양진안: 형님은 이 부분만 수정하시면 될 거 같습니다!
+    // @이채진: 짱진이도 맨 처음에 메시지 띄울 때 이거 사용하면 될 거 같아용
+    // @장규은: 규은이도 짱진이랑 마찬가지로 맨 처음 메시지 띄울 때 이거 사용하면 될 거 같아용
     var messages = [
       '정신을 집중해서 카드에 손을 올려주세요.....\n손을 올리면 카드를 섞습니다.....',
     ];
+
+    // 다음 페이지 이동 버튼을 눌렀을 때, 다음 페이지로 이동 할 수 있도록 하는 이벤트
+    // 본인의 상황에 맞춰서 다음 페이지로 넘어가야 할 경우, 결론적으로는 loadNextContent 함수에 이동하고자 하는 html 파일명을 인자로 넘겨주면 됨
     $(document).on('click', '#move-next-page', function (data) {
       $('#modal').fadeOut();
       loadNextContent('index2.html');

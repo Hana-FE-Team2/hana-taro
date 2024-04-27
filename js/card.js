@@ -1,3 +1,5 @@
+// card와 관련된 js 파일
+
 $(function () {
   $(document).on('mouseover', '.card', function () {
     this.hoverTimeout = setTimeout(() => {
@@ -76,6 +78,8 @@ $(document).ready(() => {
   });
 });
 
+// @장규은: 규은이도 카드 다 선택하면 모달을 띄워야 하는데 이 부분 참고하면 좋을 듯
+// 대신 너는 open-modal-multi가 아니라 open-modal을 사용하면 될 것 같아
 async function makeShuffle() {
   var random = Math.floor(Math.random() * 2);
   if (random == 0) {
@@ -84,7 +88,6 @@ async function makeShuffle() {
     await shuffle2();
   }
   messages = ['카드를 다시 섞겠습니까.....?'];
-  // $('#open-modal').click();
   $('#open-modal-multi').click();
 }
 
@@ -109,7 +112,7 @@ function shuffle1() {
       for (let i = 0; i < card.length; i++) {
         setTimeout(() => {
           card[i].style.transform = 'translate(0px)';
-          if (i === card.length - 1) resolve(); // Resolve when the last card is reset
+          if (i === card.length - 1) resolve();
         }, SPEED * i);
       }
     }, maxTimeout + SPEED);
@@ -142,7 +145,7 @@ let shuffle2 = async () => {
           card[
             i
           ].style.cssText += `transform: rotate(0deg) translate(0px, 0px)`;
-          if (i === card.length - 1) resolve(); // Resolve when the last reset occurs
+          if (i === card.length - 1) resolve();
         }, TIME);
       }
     }, TIME * (SHUFFLE_NUM + 1));
