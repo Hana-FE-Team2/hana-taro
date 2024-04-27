@@ -45,13 +45,15 @@
   </body>
   <script></script>
   <script src="/js/app.js"></script>
+  <script src="/js/card.js"></script>
+  <script src="/js/modal.js"></script>
   <script type="text/javascript">
-    // var messages = [
-    //   '정신을 집중해서 카드에 손을 올려주세요.....\n손을 올리면 카드를 섞습니다.....',
-    // ];
     var messages = [
-      '안녕하세요... \n 하나 타로에 오신 것을 환영합니다',
-      '당신의 금전운을 알고 싶다면 수정구를 눌러주세요.',
+      '정신을 집중해서 카드에 손을 올려주세요.....\n손을 올리면 카드를 섞습니다.....',
     ];
+    $(document).on('click', '#move-next-page', function (data) {
+      $('#modal').fadeOut();
+      loadNextContent('index2.html');
+    });
   </script>
 </html>
