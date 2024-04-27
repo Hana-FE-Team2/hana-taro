@@ -42,7 +42,7 @@
     }
     .scroll {
       width: 100%;
-      height: 10000px;
+      /* height: 10000px; */
       position: absolute;
     }
     body::-webkit-scrollbar {
@@ -292,6 +292,7 @@
         index = CARD_COUNT - 1;
         $(`#${index}`).addClass("current-card");
         $(window).scrollTop(0);
+        $(".scroll").css("height", `${SCROLL_SCOPE * (CARD_COUNT + 1)}`); // 1을 더해 마지막 카드도 스크롤 가능
         console.log("current index: " + index + " 스크롤 위치: 0");
       });
 
@@ -333,12 +334,6 @@
             .removeClass("current-card");
           $(".card").eq(index).addClass("current-card");
         }
-
-        // 스크롤 조정 필요
-        // if (index < 0) {
-        //   $(window).scrollTop(100);
-        //   index = 0;
-        // }
         lastScroll = scroll;
       });
 
