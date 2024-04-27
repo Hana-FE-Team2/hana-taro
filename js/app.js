@@ -48,6 +48,7 @@ $(function () {
 
   // 다음 메시지 버튼 클릭 시
   $(document).on('click', '#nextModal', function () {
+    nextButtonClickCount++;
 
     if (nextButtonClickCount >= messages.length) {
       setTimeout(function () {
@@ -206,6 +207,7 @@ async function makeShuffle() {
     await shuffle2();
   }
   messages = ['카드가 섞였습니다.'];
+  // $('#open-modal').click();
   $('#open-modal-multi').click();
 }
 
