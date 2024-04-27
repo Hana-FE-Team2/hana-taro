@@ -13,21 +13,20 @@ $(window).on("scroll", () => {
   let cardTranslate = parseInt($(".card").css("height").slice(0, -2)) * 3;
   let scroll = $(window).scrollTop();
   index = Math.floor(22 - scroll / SCROLL_SCOPE);
+  // 인덱스 범위를 벗어난 경우 실행하지 않는다.
   if (index < 0 || index > 21) {
     return;
   }
-  // console.log(index);
-  // console.log($(".card").css("height"));
-  // console.log("scroll:" + $(window).scrollTop());
-  // console.log("index: " + index);
+
   if (scroll - lastScroll < 0) {
-    let scale = $(".card").eq(0).css("transform");
+    console.log("스크롤 올릴 때");
     $(".card").eq(index).css("transform", `translateY(0px)`);
     $(".card")
       .eq(index - 1)
       .removeClass("current-card");
     $(".card").eq(index).addClass("current-card");
   } else {
+    console.log("스크롤 내릴 때");
     $(".card").eq(index).css("transform", `translateY(${cardTranslate}px)`);
     $(".card").eq(index).removeClass("current-card");
     $(".card")
@@ -44,26 +43,27 @@ $(window).on("scroll", () => {
 });
 
 // 카드 선택 애니메이션
-let count = 1;
+let cnt = 0;
+const TRANSLATE = {
+  x: "175%",
+  y: ["-60%", "0%", "60%"],
+};
 $(document).on("click", ".current-card", (e) => {
-  // console.log("카드 누르셨어요!");
   let id = e.target.id;
-  let left = $(`#${id}`).css("left");
-  let translateY;
-  if (count == 1) {
-    translateY = "-75%";
-  } else if (count == 2) {
-    translateY = "0%";
-  } else if (count == 3) {
-    translateY = "75%";
-  }
-  console.log(left);
 
   $(`#${id}`).removeClass("card current-card");
   $(`#${id}`).css("left", "0px");
   $(`#${id}`).addClass(`selected-card`);
+  $(`#${id - 1}`).addClass("current-card");
 
-  $(`#${id}`).css("transform", `translate(200%, ${translateY}) scale(0.4)`);
-
-  count++;
+  $(`#${id}`).css(
+    "transform",
+    `translate(${TRANSLATE.x}, ${TRANSLATE.y[cnt]}) scale(0.4)`
+  );
+  index--;
+  cnt++;
+  if (cnt == 3) {
+    $(`#${id - 1}`).removeClass("current-card");
+    return;
+  }
 });
