@@ -1,7 +1,7 @@
 // card와 관련된 js 파일
 
 $(function () {
-  $(document).on('mouseover', '.card', function () {
+  $(document).on('mouseover', '.card-shuffle', function () {
     this.hoverTimeout = setTimeout(() => {
       makeShuffle();
     }, 2000);
@@ -12,7 +12,7 @@ $(function () {
     makeShuffle();
   });
 
-  $(document).on('mouseout', '.card', function () {
+  $(document).on('mouseout', '.card-shuffle', function () {
     clearTimeout(this.hoverTimeout);
   });
 });
