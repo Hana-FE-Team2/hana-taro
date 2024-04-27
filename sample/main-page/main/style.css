@@ -1,8 +1,10 @@
 * {
   /* border: solid 1px; */
 }
+body{
+  margin: 0px;
+}
 .container {
-  
   background-color: #1D1B43;
   height: 100%;
   position: relative;
@@ -11,8 +13,10 @@
   align-items: center;
 }
 .frame {
-  width: 100%;
-  height: 100%;
+  /* width: 100%; */
+  width: 1280px;
+  /* height: 100%; */
+  height: 832px;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -29,6 +33,9 @@
   height: 80%;
   /* min-height: 40%; */
   background-image: url("../../../img/main/main_page_newcolor.jpg");
+}
+@media screen {
+  
 }
 .backgroud.clicked{
   animation: mouse-movement 0.5s linear 5;
