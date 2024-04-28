@@ -41,10 +41,6 @@ $(function () {
 
   setTimeout(function () {
     openModal(messages);
-    // 2초 후 입 움직임
-    background.classList.contains('clicked')
-      ? background.classList.remove('clicked')
-      : background.classList.add('clicked');
   }, 2000);
 
   // open-modal에 click 이벤트 발생 시, 화살표 버튼 있는 모달을 띄움
