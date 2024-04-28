@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.container {
+  background-color: #482931;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  background-image: url("../img/component/cardPlate.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.flip-outer {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  top: 10vh;
+  padding-left: 10%;
+  padding-right: 10%;
+  width: 80%;
+}
+.flip-inner {
+  position: relative;
+  transition: transform 1.5s ease;
+  width: 150px;
+  height: 225px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+.flip-inner img {
+  width: 100%;
+  height: 100%;
+}
+.flip-inner img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: transform 1.5s;
+}
+.back {
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  backface-visibility: hidden;
+}
+.front {
+  width: 100%;
+  position: absolute;
+}
+#card-title {
+  position: relative;
+  color: #f0963c;
+  font-size: 1.8rem;
+  top: 50vh;
+  padding-left: 30%;
+  padding-right: 30%;
+}
+.modal {
+  margin: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#modal-img {
+  width: auto;
+  height: 45vh;
+  margin: 2%;
+  display: flex;
+}
+
+.modal-bg {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vh;
+  height: 40vh;
+  background-image: url("../img/component/speechBubble.jpg");
+}
