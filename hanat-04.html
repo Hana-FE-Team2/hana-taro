@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script id="cards" src="./js/cards.js"></script>
-    <link rel="stylesheet" href="hanat-04.css" />
+    <script id="card" src="./js/card.js"></script>
+    <link rel="stylesheet" href="./css/hanat-04.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <title>Document</title>
   </head>
   <body>
@@ -41,135 +43,14 @@
       <!-- 모달에 들어갈 설명 -->
       <div id="message" style="display: none"></div>
 
-      <script src="./hanat-04-modal.js"></script>
+      <script src="./js/modal.js"></script>
       <script type="text/javascript">
         var messages = [
           "당신의 금전운을 점쳐줄 카드를 선택해 \n결과를 확인하세요....",
         ];
       </script>
 
-      <script>
-        let selectedNum = []; // 카드 번호를 저장할 배열 선언
-        let selectedDir = []; // 카드 방향을 저장할 배열 선언
-        var openedCard = []; // 오픈한 카드 번호를 저장할 배열 선언
-
-        while (selectedNum.length < 3) {
-          let randomNum = Math.floor(Math.random() * 22);
-          if (!selectedNum.includes(randomNum)) {
-            // 이미 선택된 번호와 겹치지 않도록
-            selectedNum.push(randomNum);
-            selectedDir.push(Math.round(Math.random())); // 0 or 1
-          }
-        }
-
-        $(document).ready(function () {
-          // 카드 뒤집기 함수
-          $(function () {
-            $(".flip-inner").on("click", function () {
-              const cardId = parseInt($(this).attr("id").slice(4)); // 선택한 카드의 id 불러오기
-              console.log(cardId);
-
-              $("#card" + cardId + "-front").attr(
-                // 선택한 카드의 이미지 추가
-                "src",
-                card_lists[selectedNum[cardId]].url
-              );
-
-              $("#card" + cardId + "-front").css({
-                transform: "rotateY(180deg)",
-              }); // 뒤집을 때 좌우 반전되는 것 방지
-              if (selectedDir[cardId] == 1) {
-                $("#card" + cardId + "-front").css({
-                  transform: "rotate(180deg)",
-                }); // 역방향일 경우 180도 회전
-              }
-
-              $("#card" + cardId).css({ transform: "rotateY(180deg)" }); // 카드 뒤집기
-              console.log(selectedNum[cardId]);
-              console.log(selectedDir[cardId]);
-
-              setTimeout(function () {
-                openModal(cardId); // 뒤집으면 모달 열기
-              }, 1000);
-            });
-          });
-
-          // 모달 열기 함수
-          function openModal(cardId) {
-            if (!openedCard.includes(cardId)) {
-              // 모든 카드를 뒤집었는지 확인하기 위한 검사
-              openedCard.push(cardId);
-            }
-            const modal = $("#modal");
-            // Load modal content from modal.html
-            $.get("hanat-04-modal.html", function (data) {
-              // Insert modal content into the modal div
-              modal.html(data);
-              // Display a card
-              $("#modal-img").attr("src", card_lists[selectedNum[cardId]].url);
-              if (selectedDir[cardId] == 1) {
-                $("#modal-img").css({ transform: "rotate(180deg)" }); // 역방향일 경우 180도 회전
-              }
-              // Display a message
-              const messageText =
-                card_lists[selectedNum[cardId]].description[
-                  selectedDir[cardId]
-                ];
-              console.log(messageText);
-              const messageTextWithBr = messageText.replace(/\n/g, "<br>");
-              $("#modal-message").html(messageTextWithBr);
-              animateLetters($("#modal-message"));
-
-              modal.fadeIn();
-              modal.css("display", "flex");
-            });
-          }
-
-          // 모달 종료
-          $(document).on("click", "#next-modal", function () {
-            $("#modal").fadeOut();
-            if (openedCard.length > 2) {
-              // 다 뒤집었을 경우
-              messages = [
-                "점꾀는 어떠셨나요... \n다음 버튼을 누르면 결과화면으로 넘어갑니다....",
-              ];
-              $.getScript("./hanat-04-modal.js");
-            }
-          });
-        });
-      </script>
-
-      <script>
-        $(document).ready(function () {
-          // Function to load content from next.html
-          function loadNextContent() {
-            $.get("next.html", function (data) {
-              // Replace the content of the body with the content from next.html
-              $("body").html(data);
-            });
-          }
-
-          // Handle click event on the "next" button
-          $("#nextButton").on("click", function () {
-            loadNextContent();
-          });
-        });
-
-        $(document).ready(function () {
-          // Function to load content from next.html
-          function moveToHome() {
-            $.get("index.html", function (data) {
-              // Replace the content of the body with the content from next.html
-              $("body").html(data);
-            });
-          }
-
-          // Handle click event on the "next" button
-          $("#moveToHome").on("click", function () {
-            moveToHome();
-          });
-        });
-      </script>
+      <script src="hanat-04-img-modal.js"></script>
     </div>
   </body>
 </html>
