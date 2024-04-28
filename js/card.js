@@ -244,7 +244,7 @@ let selectedNum = []; // 카드 번호를 저장할 배열 선언
 let selectedDir = []; // 카드 방향을 저장할 배열 선언
 
 while (selectedNum.length < 3) {
-  let randomNum = Math.floor(Math.random() * 22);
+  let randomNum = Math.floor(Math.random() * 22); // 0 ~ 21
   if (!selectedNum.includes(randomNum)) {
     // 이미 선택된 번호와 겹치지 않도록
     selectedNum.push(randomNum);
