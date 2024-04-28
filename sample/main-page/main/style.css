@@ -1,9 +1,8 @@
-* {
-  /* border: solid 1px; */
-}
 body{
   margin: 0px;
 }
+
+/* container css */
 .container {
   background-color: #1D1B43;
   height: 100%;
@@ -12,6 +11,7 @@ body{
   justify-content: center;
   align-items: center;
 }
+/* frame css  */
 .frame {
   /* width: 100%; */
   width: 1280px;
@@ -25,6 +25,7 @@ body{
   justify-content: center;
   align-items: center;
 } 
+/* backgroud css */
 .backgroud {
   background-size: contain;
   background-position: center;
@@ -37,6 +38,8 @@ body{
 @media screen {
   
 }
+
+
 .backgroud.clicked{
   animation: mouse-movement 0.5s linear 5;
 }
@@ -75,7 +78,7 @@ body{
 }
 
 .magicball1.magicball-hover {
-  animation: glow 1.5s linear 3;
+  animation: glow 1.5s linear infinite;
 }
 
 @keyframes glow {
@@ -91,7 +94,7 @@ body{
 }
 
 
-/* card */
+/* card css */
   /* card back front를 담은 div */
   #cards {
     /* perspective를 주면 좀더 원근감을 줄 수 있음 */
@@ -134,6 +137,8 @@ body{
     transform: rotateY(0deg);
   }
 
+  /* card 위치 */
+
   #cards {
     left: 25%;
     top : 70%;
@@ -173,7 +178,7 @@ body{
   #cards.card4 .card.front {
     background-image: url("../../../img/cards/theStar.jpg");
   }
-
+  /* modal css */
   .modal {
     margin: 0;
     display: none;
@@ -210,6 +215,28 @@ body{
   
   #modal-message {
     color: #fff;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     text-align: center;
+  }
+  
+  .modal-button {
+    position: absolute;
+    top: 75%;
+    left: 80%;
+    cursor: pointer;
+    transition: filter 0.3s ease;
+  }
+  
+  .modal-button:hover {
+    filter: brightness(0.5);
+  }
+  
+  .button-wrapper {
+    display: flex;
+    position: absolute;
+    top: 70%;
+    left: 35%;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
   }

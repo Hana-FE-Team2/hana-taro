@@ -6,9 +6,26 @@ magicBall.addEventListener("mouseout", () => {
   magicBall.classList.remove("magicball-hover")
 })
 
+let nextButtonClickCount = 0;
+function openModal(messageList) {
+const modal = $('#modal');
+  $.get('modal.html', function (data) {
+    modal.html(data);
+    const messageText = messageList[nextButtonClickCount];
+    const messageTextWithBr = messageText.replace(/\n/g, '<br>');
+
+    $('#modal-message').html(messageTextWithBr);
+
+    animateLetters($('#modal-message'));
+
+    modal.fadeIn();
+  });
+}
+
 // cards
 const cards = document.querySelectorAll("#cards")
 const card = document.querySelectorAll(".card")
+const background = document.querySelector(".backgroud")
 // const clickedCard = document.querySelectorAll("#cards.clicked")
 cards.forEach((ele) => {
   console.log(ele)
@@ -19,7 +36,8 @@ cards.forEach((ele) => {
     if (clickedCard.length+1 >= 4) {
       clickedCard.forEach((elem)=> elem.classList.remove("clicked"))
       document.querySelector("#cards.clicked").classList.remove("clicked")
-      callOpenModal(['카드를 마음대로 만지지 말아주세요.....'])
+      openModal(['카드를 마음대로 만지지 말아주세요.....'])
+      background.classList.contains("clicked") ? background.classList.remove("clicked") : background.classList.add("clicked")
     }
   })
 })

@@ -14,12 +14,6 @@
     <div class="frame">
       <!-- <div class="backgroud"> -->
       <div class="backgroud">
-        <button id="openModal">모달 열기</button>
-        <button
-          onclick="callOpenModal(['원하는 시점에 이번트 발생\n', '여러 메시지 출력 가능 확인'])"
-        >
-          asdf
-        </button>
         <!-- magicball -->
         <div class="magicball magicball1"></div>
         <!-- cards -->
@@ -43,32 +37,32 @@
           <div class="card back"></div>
           <div class="card front"></div>
         </div>
+        <!-- modal -->
         <div id="modal" class="modal"></div>
       </div>
     </div>
   </div>
 </body>
-  <script>
-  function callOpenModal(messageList) {
-    messages = messageList;
-    $('#openModal').click();
-    const background = document.querySelector(".backgroud")
-    background.classList.add("clicked");
-  }
-  </script>
+  <!-- jquery 사용 선언 -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <!-- js 연결 -->
   <script src="./script.js"></script>
   <script src="./app.js"></script>
+  <script src="./modal.js"></script>
+  <!-- 모달 메시지 -->
   <script type="text/javascript">
     var messages = [
       '안녕하세요....\n하나타로에 오신것을 환영합니다....',
       '당신의 금전운을 알고 싶다면...\n수정구를 클릭해주세요....'
     ];
+    $(document).on('click', '.magicball', function (data) {
+      $('#modal').fadeOut();
+      loadNextContent('index2.html');
+    });
   </script>
-  <!-- <script>
-    setTimeout(function () {
-    
-      // 요기수정
-      background.classList.add("clicked")
-    }, 2000);
-  </script> -->
 </html>
