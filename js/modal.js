@@ -6,15 +6,15 @@ $(function () {
 
   // 실제 모달을 띄우는 함수 - 화살표 버튼 하나만 있는 경우
   function openModal(messageList) {
-    const modal = $('#modal');
-    $.get('modal.html', function (data) {
+    const modal = $("#modal");
+    $.get("modal.html", function (data) {
       modal.html(data);
       const messageText = messageList[nextButtonClickCount];
-      const messageTextWithBr = messageText.replace(/\n/g, '<br>');
+      const messageTextWithBr = messageText.replace(/\n/g, "<br>");
 
-      $('#modal-message').html(messageTextWithBr);
+      $("#modal-message").html(messageTextWithBr);
 
-      animateLetters($('#modal-message'));
+      animateLetters($("#modal-message"));
 
       modal.fadeIn();
     });
@@ -22,15 +22,15 @@ $(function () {
 
   // 실제 모달을 띄우는 함수 - 이건 김민재한테만 해당함
   function openModalMulti(messageList) {
-    const modal = $('#modal');
-    $.get('modal-multi.html', function (data) {
+    const modal = $("#modal");
+    $.get("modal-multi.html", function (data) {
       modal.html(data);
       const messageText = messageList[nextButtonClickCount];
-      const messageTextWithBr = messageText.replace(/\n/g, '<br>');
+      const messageTextWithBr = messageText.replace(/\n/g, "<br>");
 
-      $('#modal-message').html(messageTextWithBr);
+      $("#modal-message").html(messageTextWithBr);
 
-      animateLetters($('#modal-message'));
+      animateLetters($("#modal-message"));
 
       modal.fadeIn();
     });
@@ -43,52 +43,52 @@ $(function () {
   }, 2000);
 
   // open-modal에 click 이벤트 발생 시, 화살표 버튼 있는 모달을 띄움
-  $('#open-modal').on('click', function () {
+  $("#open-modal").on("click", function () {
     openModal(messages);
     nextButtonClickCount = 0;
   });
 
   // open-modal-multi에 click 이벤트 발생 시, 어쩌고.. 이건 @김민재 꺼라 안 건드려도 됨
-  $('#open-modal-multi').on('click', function () {
+  $("#open-modal-multi").on("click", function () {
     openModalMulti(messages);
     nextButtonClickCount = 0;
   });
 
   // 다음 메시지 버튼 클릭 시
-  $(document).on('click', '#next-modal', function () {
+  $(document).on("click", "#next-modal", function () {
     // 모달에서 화살표를 누를 경우 호출됨
     nextButtonClickCount++;
 
     // 이미 messages 리스트에 담긴 모든 메시지를 다 봤을 경우 모달을 닫음
     if (nextButtonClickCount >= messages.length) {
       setTimeout(function () {
-        $('#modal').fadeOut();
+        $("#modal").fadeOut();
       }, 500);
       return;
     }
     const messageText = messages[nextButtonClickCount];
 
     // 모달 메시지에 줄바꿈을 <br>로 바꿔서 출력
-    const messageTextWithBr = messageText.replace(/\n/g, '<br>');
-    $('#modal-message').html(messageTextWithBr);
-    animateLetters($('#modal-message'));
+    const messageTextWithBr = messageText.replace(/\n/g, "<br>");
+    $("#modal-message").html(messageTextWithBr);
+    animateLetters($("#modal-message"));
   });
 
   // 모달 메시지의 글자 크기를 창 크기에 맞춰 조절
   $(window).resize(function () {
-    var modalContentWidth = $('.modal-content').width();
-    var modalContentHeight = $('.modal-content').height();
+    var modalContentWidth = $(".modal-content").width();
+    var modalContentHeight = $(".modal-content").height();
     var fontSize = Math.min(modalContentWidth, modalContentHeight) * 0.09;
-    $('#modal-message').css('font-size', fontSize + 'px');
+    $("#modal-message").css("font-size", fontSize + "px");
   });
 
-  $(window).trigger('resize');
+  $(window).trigger("resize");
 });
 
 // 모달에 띄울 메시지 애니메이션
 function animateLetters(element) {
   var text = element.html();
-  var letters = text.split('');
+  var letters = text.split("");
   element.empty();
 
   var index = 0;
@@ -96,17 +96,17 @@ function animateLetters(element) {
   while (index < letters.length) {
     var letter = letters[index];
 
-    if (letter === '<') {
-      var tag = '';
-      while (letters[index] !== '>') {
+    if (letter === "<") {
+      var tag = "";
+      while (letters[index] !== ">") {
         tag += letters[index];
         index++;
       }
-      tag += '>';
+      tag += ">";
       index++;
       element.append(tag);
     } else {
-      $('<span>')
+      $("<span>")
         .text(letter)
         .hide()
         .appendTo(element)
