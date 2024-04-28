@@ -10,21 +10,21 @@ magicBall.addEventListener("mouseout", () => {
 })
 
 // message 띄우려고 가져옴
-let nextButtonClickCount = 0;
-function openModal(messageList) {
-const modal = $('#modal');
-  $.get('modal.html', function (data) {
-    modal.html(data);
-    const messageText = messageList[nextButtonClickCount];
-    const messageTextWithBr = messageText.replace(/\n/g, '<br>');
+// let nextButtonClickCount = 0;
+// function openModal(messageList) {
+// const modal = $('#modal');
+//   $.get('modal.html', function (data) {
+//     modal.html(data);
+//     const messageText = messageList[nextButtonClickCount];
+//     const messageTextWithBr = messageText.replace(/\n/g, '<br>');
 
-    $('#modal-message').html(messageTextWithBr);
+//     $('#modal-message').html(messageTextWithBr);
 
-    animateLetters($('#modal-message'));
+//     animateLetters($('#modal-message'));
 
-    modal.fadeIn();
-  });
-}
+//     modal.fadeIn();
+//   });
+// }
 
 // cards
 const cards = document.querySelectorAll("#cards")
