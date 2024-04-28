@@ -5,91 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script id="cards" src="./js/cards.js"></script>
-    <link rel="stylesheet" href="hanat-04-modal.css" />
+    <link rel="stylesheet" href="hanat-04.css" />
     <title>Document</title>
-
-    <style>
-      body {
-        margin: 0;
-        width: 100vw;
-        height: 100vh;
-      }
-      .container {
-        background-color: #482931;
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        display: flex;
-        background-image: url("img/component/cardPlate.jpg");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-      }
-      .flip-outer {
-        position: absolute;
-        display: flex;
-        justify-content: space-around;
-        top: 10vh;
-        padding-left: 10%;
-        padding-right: 10%;
-        width: 80%;
-      }
-      .flip-inner {
-        position: relative;
-        transition: transform 1.5s ease;
-        width: 150px;
-        height: 225px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        transform-style: preserve-3d;
-        perspective: 1000px;
-      }
-      .flip-inner img {
-        width: 100%;
-        height: 100%;
-      }
-      .back {
-        width: 100%;
-        position: absolute;
-        z-index: 1;
-        backface-visibility: hidden;
-      }
-      .front {
-        width: 100%;
-        position: absolute;
-        transform: rotateY(180deg);
-      }
-    </style>
   </head>
   <body>
     <div class="container">
       <div class="flip-outer">
-        <div
-          class="flip-inner"
-          id="card0"
-          style="transform: rotate(-40deg); top: 10vh"
-        >
-          <img src="./img/component/cardBack.jpg" alt="" class="back" />
-          <img alt="" class="front" id="card0-front" />
+        <div class="flip" id="card0-flip" style="transform: rotate(-30deg)">
+          <div class="flip-inner" id="card0" style="top: 10vh">
+            <img src="./img/component/cardBack.jpg" alt="" class="back" />
+            <img alt="" class="front" id="card0-front" />
+          </div>
         </div>
-        <div class="flip-inner" id="card1">
-          <img src="./img/component/cardBack.jpg" alt="" class="back" />
-          <img alt="" class="front" id="card1-front" />
+        <div class="flip" id="card1-flip">
+          <div class="flip-inner" id="card1">
+            <img src="./img/component/cardBack.jpg" alt="" class="back" />
+            <img alt="" class="front" id="card1-front" />
+          </div>
         </div>
-        <div
-          class="flip-inner"
-          id="card2"
-          style="transform: rotate(40deg); top: 10vh"
-        >
-          <img src="./img/component/cardBack.jpg" alt="" class="back" />
-          <img alt="" class="front" id="card2-front" />
+        <div class="flip" id="card2-flip" style="transform: rotate(30deg)">
+          <div class="flip-inner" id="card2" style="top: 10vh">
+            <img src="./img/component/cardBack.jpg" alt="" class="back" />
+            <img alt="" class="front" id="card2-front" />
+          </div>
         </div>
+      </div>
+      <div class="flip-outer" id="card-title">
+        <span>과거</span>
+        <span>현재</span>
+        <span>미래</span>
       </div>
 
       <!-- 카드 설명 모달 -->
       <div id="modal" class="modal"></div>
       <!-- 모달에 들어갈 설명 -->
       <div id="message" style="display: none"></div>
+
+      <script src="./hanat-04-modal.js"></script>
+      <script type="text/javascript">
+        var messages = [
+          "당신의 금전운을 점쳐줄 카드를 선택해 \n결과를 확인하세요....",
+        ];
+      </script>
 
       <script>
         let selectedNum = []; // 카드 번호를 저장할 배열 선언
@@ -116,6 +73,8 @@
                 card_lists[selectedNum[cardId]].url
               );
 
+              var angle = 0;
+
               if (selectedDir[cardId] == 1) {
                 $("#card" + cardId + "-front").css({
                   transform: "rotate(180deg)",
@@ -140,14 +99,20 @@
               // Insert modal content into the modal div
               modal.html(data);
               // Display a card
-              $("#modalImg").attr("src", card_lists[selectedNum[cardId]].url);
+              $("#modal-img").attr("src", card_lists[selectedNum[cardId]].url);
               if (selectedDir[cardId] == 1) {
-                $("#modalImg").css({ transform: "rotate(180deg)" }); // 역방향일 경우 180도 회전
+                $("#modal-img").css({ transform: "rotate(180deg)" }); // 역방향일 경우 180도 회전
               }
               // Display a message
-              $("#modalMessage").text(
-                card_lists[selectedNum[cardId]].description[selectedDir[cardId]]
-              );
+              const messageText =
+                card_lists[selectedNum[cardId]].description[
+                  selectedDir[cardId]
+                ];
+              console.log(messageText);
+              const messageTextWithBr = messageText.replace(/\n/g, "<br>");
+              $("#modal-message").html(messageTextWithBr);
+              animateLetters($("#modal-message"));
+
               modal.fadeIn();
               modal.css("display", "flex");
             });
@@ -161,7 +126,7 @@
       </script>
 
       <!-- 다음 화면으로 전환-->
-      <button id="nextButton">next</button>
+      <button id="nextButton" style="display: none">next</button>
 
       <script>
         $(document).ready(function () {
