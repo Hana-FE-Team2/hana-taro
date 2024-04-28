@@ -238,3 +238,17 @@ $(document).on("click", ".current-card", (e) => {
     }, 2000);
   }
 });
+
+// 선택된 카드 배열
+let selectedNum = []; // 카드 번호를 저장할 배열 선언
+let selectedDir = []; // 카드 방향을 저장할 배열 선언
+
+while (selectedNum.length < 3) {
+  let randomNum = Math.floor(Math.random() * 22);
+  if (!selectedNum.includes(randomNum)) {
+    // 이미 선택된 번호와 겹치지 않도록
+    selectedNum.push(randomNum);
+    selectedDir.push(Math.round(Math.random())); // 0 or 1
+  }
+}
+// 배열 사용하실 땐 card_lists[selectedNum[0]].url 이런 식으로 index로 접근하시면 됩니다!
