@@ -51,7 +51,6 @@ body {
 .front {
   width: 100%;
   position: absolute;
-  transform: rotateY(180deg);
 }
 #card-title {
   position: relative;
