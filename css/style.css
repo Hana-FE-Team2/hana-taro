@@ -7,13 +7,27 @@ body {
   height: 100%;
   overflow: hidden;
   display: flex;
-  background-image: url("../img/component/cardPlate.jpg");
+  background-image: url('../img/component/cardPlate.jpg');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .card {
+  position: absolute;
+  transition: left 2s ease, transform 2s ease;
+  width: 200px;
+  height: 300px;
+  text-align: center;
+  left: 0px;
+  right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.2); /* 오른쪽 위에 밝은 그림자와 왼쪽 아래 그림자 */
+  border-radius: 15px;
+}
+
+.card-shuffle {
   position: absolute;
   transition: left 2s ease, transform 2s ease;
   width: 200px;
@@ -61,7 +75,7 @@ body {
   background-repeat: no-repeat;
   width: 100vh;
   height: 40vh;
-  background-image: url("../img/component/speechBubble.jpg");
+  background-image: url('../img/component/speechBubble.jpg');
 }
 
 .modal-content {
