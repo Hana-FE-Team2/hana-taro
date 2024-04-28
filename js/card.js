@@ -1,18 +1,18 @@
 // card와 관련된 js 파일
 
 $(function () {
-  $(document).on("mouseover", ".card-shuffle", function () {
+  $(document).on('mouseover', '.card-shuffle', function () {
     this.hoverTimeout = setTimeout(() => {
       makeShuffle();
     }, 2000);
   });
 
-  $(document).on("click", "#shuffle-again", function () {
-    $("#modal").fadeOut();
+  $(document).on('click', '#shuffle-again', function () {
+    $('#modal').fadeOut();
     makeShuffle();
   });
 
-  $(document).on("mouseout", ".card-shuffle", function () {
+  $(document).on('mouseout', '.card-shuffle', function () {
     clearTimeout(this.hoverTimeout);
   });
 });
@@ -27,7 +27,7 @@ let spreadCard = (distance, interval) => {
   for (let n = 0; n < CARD_COUNT; n++) {
     setTimeout(() => {
       for (let i = n; i < CARD_COUNT; i++) {
-        $(`#${i}`).css("left", `${distance + n * interval}px`);
+        $(`#${i}`).css('left', `${distance + n * interval}px`);
       }
     }, SPEED * (n + 1));
   }
@@ -92,13 +92,13 @@ async function makeShuffle() {
   } else {
     await shuffle2();
   }
-  messages = ["카드를 다시 섞겠습니까.....?"];
-  $("#open-modal-multi").click();
+  messages = ['카드를 다시 섞겠습니까.....?'];
+  $('#open-modal-multi').click();
 }
 
 function shuffle1() {
   return new Promise((resolve) => {
-    const card = document.querySelectorAll(".card");
+    const card = document.querySelectorAll('.card-shuffle');
     const SPEED = 100;
     const DISTANCE = 250;
     let maxTimeout = 0;
@@ -116,7 +116,7 @@ function shuffle1() {
     setTimeout(() => {
       for (let i = 0; i < card.length; i++) {
         setTimeout(() => {
-          card[i].style.transform = "translate(0px)";
+          card[i].style.transform = 'translate(0px)';
           if (i === card.length - 1) resolve();
         }, SPEED * i);
       }
@@ -130,7 +130,7 @@ let shuffle2 = async () => {
   return new Promise(async (resolve) => {
     const SHUFFLE_NUM = 3; // 셔플 횟수
     const TIME = 750; // 셔플 애니메이션 시간
-    const card = document.querySelectorAll(".card");
+    const card = document.querySelectorAll('.card-shuffle');
     for (let j = 0; j < SHUFFLE_NUM; j++) {
       for (let i = 0; i < card.length; i++) {
         let randomX = getRandom(-600, 600);
@@ -165,8 +165,8 @@ let lastScroll; // 스크롤 UP / DOWN을 구별하기 위한 변수
 let cnt = 0; // 클릭 이벤트 발생 횟수
 const TRANSLATE = {
   // 선택한 카드를 오른쪽 상단부터 하나씩 나열하기 위한 변수
-  x: "225%",
-  y: ["-70%", "0%", "70%"],
+  x: '225%',
+  y: ['-70%', '0%', '70%'],
 };
 
 // 선택된 카드 배열
