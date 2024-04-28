@@ -6,11 +6,11 @@ $(function () {
 
   // 실제 모달을 띄우는 함수 - 화살표 버튼 하나만 있는 경우
   function openModal(messageList) {
-    var modal = $('#modal');
+    const modal = $('#modal');
     $.get('modal.html', function (data) {
       modal.html(data);
-      var messageText = messageList[nextButtonClickCount];
-      var messageTextWithBr = messageText.replace(/\n/g, '<br>');
+      const messageText = messageList[nextButtonClickCount];
+      const messageTextWithBr = messageText.replace(/\n/g, '<br>');
 
       $('#modal-message').html(messageTextWithBr);
 
@@ -22,11 +22,11 @@ $(function () {
 
   // 실제 모달을 띄우는 함수 - 이건 김민재한테만 해당함
   function openModalMulti(messageList) {
-    var modal = $('#modal');
+    const modal = $('#modal');
     $.get('modal-multi.html', function (data) {
       modal.html(data);
-      var messageText = messageList[nextButtonClickCount];
-      var messageTextWithBr = messageText.replace(/\n/g, '<br>');
+      const messageText = messageList[nextButtonClickCount];
+      const messageTextWithBr = messageText.replace(/\n/g, '<br>');
 
       $('#modal-message').html(messageTextWithBr);
 
@@ -36,12 +36,19 @@ $(function () {
     });
   }
 
+  // 이 부분 @양 진안
+  const background = document.querySelector('.backgroud');
   // dom 로딩 후, 2초 뒤 정해진 메시지를 갖고 모달을 띄움
   // shuffle-card.html에 있는 messages가 여기에 해당
-
   setTimeout(function () {
     openModal(messages);
+    // 2초 후 입 움직임
+
+    background.classList.contains('clicked')
+      ? background.classList.remove('clicked')
+      : background.classList.add('clicked');
   }, 2000);
+  // 이 부분 끝
 
   // open-modal에 click 이벤트 발생 시, 화살표 버튼 있는 모달을 띄움
   $('#open-modal').on('click', function () {
@@ -56,9 +63,11 @@ $(function () {
   });
 
   // 다음 메시지 버튼 클릭 시
+  // 이 부분 @양진안
   $(document).on('click', '#next-modal', function () {
     // 모달에서 화살표를 누를 경우 호출됨
     nextButtonClickCount++;
+    background.classList.remove('clicked');
 
     // 이미 messages 리스트에 담긴 모든 메시지를 다 봤을 경우 모달을 닫음
     if (nextButtonClickCount >= messages.length) {
@@ -67,13 +76,14 @@ $(function () {
       }, 500);
       return;
     }
-    var messageText = messages[nextButtonClickCount];
+    const messageText = messages[nextButtonClickCount];
 
     // 모달 메시지에 줄바꿈을 <br>로 바꿔서 출력
-    var messageTextWithBr = messageText.replace(/\n/g, '<br>');
+    const messageTextWithBr = messageText.replace(/\n/g, '<br>');
     $('#modal-message').html(messageTextWithBr);
     animateLetters($('#modal-message'));
   });
+  // 이 부분 끝
 
   // 모달 메시지의 글자 크기를 창 크기에 맞춰 조절
   $(window).resize(function () {
