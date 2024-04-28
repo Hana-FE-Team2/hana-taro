@@ -1,3 +1,6 @@
+* {
+  border: solid white 2px;
+}
 body{
   margin: 0px;
 }
@@ -14,9 +17,9 @@ body{
 /* frame css  */
 .frame {
   /* width: 100%; */
-  width: 1280px;
+  width: 1920px;
   /* height: 100%; */
-  height: 832px;
+  height: 1080px;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -24,6 +27,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 } 
 /* backgroud css */
 .backgroud {
@@ -35,10 +39,91 @@ body{
   /* min-height: 40%; */
   background-image: url("../../../img/main/main_page_newcolor.jpg");
 }
-@media screen {
-  
+@media (min-width: 1920px) {
+  .frame{
+    width: 1920px;
+    height: 1080px;
+  }
+  .magicball{
+    width: 110px;
+    height: 110px;
+  }
+}
+@media (min-height: 1080px) {
+  .frame{
+    width: 1920px;
+    height: 1080px;
+  }
+  .magicball{
+    width: 110px;
+    height: 110px;
+  }
+}
+@media (max-width: 1920px) {
+  .frame{
+    width: 1440px;
+    height: 810px;
+  }
+  .magicball.magicball1{
+    width: 83px;
+    height: 83px;
+  }
+}
+@media (max-height: 1080px) {
+  .frame{
+    width: 1440px;
+    height: 810px;
+  }
+  .magicball.magicball1{
+    width: 83px;
+    height: 83px;
+  }
 }
 
+
+@media (max-width: 1440px) {
+  .frame{
+    width: 1280px;
+    height: 720px;
+  }
+}
+
+@media (max-height: 810px) {
+  .frame{
+    width: 1280px;
+    height: 720px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .frame{
+    width: 960px;
+    height: 540px;
+  }
+}
+
+@media (max-height: 720px) {
+  .frame{
+    width: 960px;
+    height: 540px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-button {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-button {
+    width: 15px;
+    height: 15px;
+    top: 70%;
+    left: 75%;
+  }
+}
 
 .backgroud.clicked{
   animation: mouse-movement 0.5s linear 5;
@@ -57,13 +142,15 @@ body{
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  width: 6vw;
-  height:6vw;
-  min-height: 10px;
-  min-width: 10px;
+  /* width: 6vw;
+  height:6vw; */
+  width: 110px;
+  height: 110px;
+  /* min-height: 10px;
+  min-width: 10px; */
   position: absolute;
-  top : 48%;
-  left: 46.9%;
+  top : 47%;
+  left: 47%;
 }
 .magicball1 {
   background-image: url("../../../img/main/magicBall.png");
