@@ -6,16 +6,19 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css" />
     <style>
-      * {
+      /* * {
         border: black solid 1px;
-      }
+      } */
       .container {
         position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       /* container */
       .last-container {
-        width: 100%;
-        height: 100%;
+        width: 80%;
+        height: 80%;
         display: flex;
         justify-content: center;
       }
@@ -72,7 +75,44 @@
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        color: #fff;
+        font-size: 1.4rem;
+        text-align: center;
       }
+      .description-content {
+        width: 80%;
+        height: 60%;
+        word-break: break-all;
+      }
+      .button-box {
+        width: 270px;
+        height: 44px;
+        position: absolute;
+        top: 80%;
+        left: 70%;
+        display: flex;
+        justify-content: space-between;
+      }
+      button {
+        width: 128px;
+        height: 44px;
+        background-color: #F5EDD8;
+        color: #482A30;
+        transition: 1s;
+      }
+      button:hover {
+        width: 132px;
+        height: 47px;
+        background-color: #F5EDD8;
+        color: #482A30;
+        border: #FFD67A solid 2px;
+      }
+
       
     </style>
 </head>
@@ -100,13 +140,21 @@
         </div>
         <!-- 설명 박스 -->
         <div class="description-box">
-          <div class="description-box-frame"></div>
-          <div class="description-box-frame"></div>
-          <div class="description-box-frame"></div>
+          <div class="description-box-frame">
+            <div class="description-content">asdfasdfasddddddddddddddddddddddddddddddddddd</div>
+          </div>
+          <div class="description-box-frame">
+            <span class="description-content">asdfasdf</span>
+          </div>
+          <div class="description-box-frame">
+            <span class="description-content">asdfasdf</span>
+          </div>
+        </div>
+        <div class="button-box">
+          <button id="tohome">홈으로</button>
+          <button id="tohanat-02">다시하기</button>
         </div>
       </div>
-
-      <button></button>
     </div>
 </body>
 <script
@@ -119,10 +167,21 @@
   <script src="/js/card.js"></script>
   <script src="/js/cards.js"></script>
   <script>
-    // $(document).on('click', '#move-next-page', function (data) {
-    //   $('#modal').fadeOut();
-    //   loadNextContent('select-card.html');
+    $(document).on('click', '#tohome', function (data) {
+      $('#modal').fadeOut();
+      loadNextContent('main-page.html');
+    });
+    $(document).on('click', '#tohanat-02', function (data) {
+      $('#modal').fadeOut();
+      loadNextContent('shuffle-card.html');
+    });
+    // selectedNum.forEach(elem => {
+    //   console.log(elem)
     // });
-    console.log(card_lists)
+    // selectedDir.forEach(elem => {
+    //   console.log(elem)
+    // })
+    // card_lists[0] 
+    // console.log(card_lists[0].)
   </script>
 </html>
