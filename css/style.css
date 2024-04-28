@@ -238,3 +238,304 @@ body::-webkit-scrollbar {
     font-size: 9px;
   }
 }
+
+/* mainpage-css */
+/* mainpage-container css */
+.mainpage-container {
+  background-color: #1D1B43;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* mainpage-frame css  */
+.mainpage-frame {
+  /* width: 100%; */
+  width: 1920px;
+  /* height: 100%; */
+  height: 1080px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../img/main/frame.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+} 
+/* mainpage-backgroud css */
+.mainpage-background {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 80%;
+  height: 80%;
+  /* min-height: 40%; */
+  background-image: url("../img/main/main_page_newcolor.jpg");
+}
+@media (min-width: 1920px) {
+  .mainpage-frame{
+    width: 1920px;
+    height: 1080px;
+  }
+  .mainpage-magicball{
+    width: 110px;
+    height: 110px;
+  }
+  .mainpage-background>#mainpage-cards {
+    width: 70px;
+    height: 120px;
+  }
+
+}
+@media (min-height: 1080px) {
+  .mainpage-frame{
+    width: 1920px;
+    height: 1080px;
+  }
+  .mainpage-magicball{
+    width: 110px;
+    height: 110px;
+  }
+  .mainpage-background>#mainpage-cards {
+    width: 70px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 1920px) {
+  .mainpage-frame{
+    width: 1440px;
+    height: 810px;
+  }
+  .mainpage-magicball.magicball1{
+    width: 83px;
+    height: 83px;
+  }
+  .mainpage-background>#mainpage-cards {
+    width: 53.8px;
+    height: 93px;
+  }
+}
+
+@media (max-height: 1080px) {
+  .mainpage-frame{
+    width: 1440px;
+    height: 810px;
+  }
+  .mainpage-magicball.magicball1{
+    width: 83px;
+    height: 83px;
+  }
+  .mainpage-background>#mainpage-cards {
+    width: 53.8px;
+    height: 93px;
+  }
+}
+
+
+@media (max-width: 1440px) {
+  .mainpage-frame{
+    width: 1280px;
+    height: 720px;
+  }
+  .mainpage-magicball.magicball1{
+    width: 63px;
+    height: 63px;
+    left: 47.5%;
+  }
+  #mainpage-cards {
+    width: 41.3px;
+    height: 71.5px;
+  }
+}
+
+@media (max-height: 810px) {
+  .mainpage-frame{
+    width: 1280px;
+    height: 720px;
+  }
+  .mainpage-magicball.magicball1{
+    width: 63px;
+    height: 63px;
+    left: 47.5%;
+  }
+  #mainpage-cards.mainpage-card {
+    width: 41.3px;
+    height: 71.5px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .mainpage-frame{
+    width: 960px;
+    height: 540px;
+  }
+  .mainpage-magicball.magicball1{
+    width: 48px;
+    height: 48px;
+  }
+  #mainpage-cards.mainpage-card {
+    width: 31.7px;
+    height: 55px;
+  }
+}
+
+@media (max-height: 720px) {
+  .mainpage-frame{
+    width: 960px;
+    height: 540px;
+  }
+  .mainpage-magicball.magicball1{
+    width: 48px;
+    height: 48px;
+  }
+  #mainpage-cards.mainpage-card {
+    width: 31.7px;
+    height: 55px;
+  }
+}
+
+.mainpage-background.clicked{
+  animation: mouse-movement 0.5s linear 5;
+}
+@keyframes mouse-movement {
+  0% {
+    background-image: url("../img/main/main_page_newcolor.jpg");
+  }
+  100% {
+    background-image: url("../img/main/main_page_mousemove.jpg");
+  }
+  
+}
+/* magicBall */
+.mainpage-magicball {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* width: 6vw;
+  height:6vw; */
+  width: 110px;
+  height: 110px;
+  /* min-height: 10px;
+  min-width: 10px; */
+  position: absolute;
+  top : 47%;
+  left: 47%;
+}
+.magicball1 {
+  background-image: url("../img/main/magicBall.png");
+  border-radius: 50%;
+}
+.mainpage-magicball:hover {
+  box-shadow: -10px -10px 40px rgba(132, 52, 135, 0.9),
+              4px 4px 6px rgba(0, 0, 0, 0.2),
+              inset -1px -1px 4px rgba(255, 255, 255, 0.05),
+              inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+  color : rgb(132, 52, 135);
+}
+
+.mainpage-magicball.magicball1.magicball-hover {
+  animation: glow 1.5s linear infinite;
+}
+
+@keyframes glow {
+  0% {
+    filter: hue-rotate(1);
+  }
+  50% {
+    filter: saturate(3);
+  }
+  100% {
+    filter: saturate(1);
+  }
+}
+
+
+/* card css */
+  /* card back front를 담은 div */
+  #mainpage-cards {
+    /* perspective를 주면 좀더 원근감을 줄 수 있음 */
+    perspective:1000px;
+    position: absolute;
+    width: 70px;
+    height: 120px;
+    /* width: 59px;
+    height: 92px; */
+  }
+  .mainpage-card {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    /* 뒤에 카드가 안보이게 됨 */
+    background-repeat: no-repeat;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    transition: 1s;
+    box-shadow : -5px 5px 5px rgba(23, 23, 23, 0.76);
+  }
+
+  /* 카드 뒷면 기본*/
+  #mainpage-cards .mainpage-card.back {
+    background-image: url("../img/component/hanaCardBackFit.png");
+    /* position absolute를 적용해 back과 fornt의 위치를 주게됨 */
+    position: absolute; 
+    transform: rotateY(0deg);
+  }
+  /* 카드 앞면 기본 */
+  #mainpage-cards .mainpage-card.front {
+    background-image: url("../img/cards/death.jpg");
+    transform: rotateY(-180deg);
+  }
+  /* 클릭되었을 떄 효과 */
+  #mainpage-cards.clicked .mainpage-card.back{
+    transform: rotateY(180deg);
+  }
+  /* 클릭되었을 떄 효과 */
+  #mainpage-cards.clicked .mainpage-card.front{
+    transform: rotateY(0deg);
+  }
+
+  /* card 위치 */
+
+  #mainpage-cards {
+    left: 25%;
+    top : 70%;
+    transform: rotate(40deg);
+  }
+  #mainpage-cards.mainpage-card1 {
+    /* background-image: url(/img/cards/Strength.jpg); */
+    left: 35%;
+    top : 65%;
+    transform: rotate(20deg);
+  }
+  #mainpage-cards.mainpage-card1 .mainpage-card.front {
+    background-image: url("../img/cards/Strength.jpg");
+  }
+
+  #mainpage-cards.mainpage-card2 {
+    left: 50%;
+    top : 75%;
+    transform: rotate(-30deg);
+  }
+  #mainpage-cards.mainpage-card2 .mainpage-card.front {
+    background-image: url("../img/cards/temperance.png");
+  }
+  #mainpage-cards.mainpage-card3 {
+    left: 60%;
+    top : 70%;
+    transform: rotate(-70deg);
+  }
+  #mainpage-cards.mainpage-card3 .mainpage-card.front {
+    background-image: url("../img/cards/theMoon.jpg");
+  }
+  #mainpage-cards.mainpage-card4 {
+    left: 70%;
+    top : 65%;
+    transform: rotate(-50deg);
+  }
+  #mainpage-cards.mainpage-card4 .mainpage-card.front {
+    background-image: url("../img/cards/theStar.jpg");
+  }

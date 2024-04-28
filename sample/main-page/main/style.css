@@ -1,0 +1,329 @@
+* {
+  border: solid white 2px;
+}
+body{
+  margin: 0px;
+}
+
+/* container css */
+.container {
+  background-color: #1D1B43;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* frame css  */
+.frame {
+  /* width: 100%; */
+  width: 1920px;
+  /* height: 100%; */
+  height: 1080px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../../img/main/frame.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+} 
+/* backgroud css */
+.backgroud {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 80%;
+  height: 80%;
+  /* min-height: 40%; */
+  background-image: url("../../../img/main/main_page_newcolor.jpg");
+}
+@media (min-width: 1920px) {
+  .frame{
+    width: 1920px;
+    height: 1080px;
+  }
+  .magicball{
+    width: 110px;
+    height: 110px;
+  }
+}
+@media (min-height: 1080px) {
+  .frame{
+    width: 1920px;
+    height: 1080px;
+  }
+  .magicball{
+    width: 110px;
+    height: 110px;
+  }
+}
+@media (max-width: 1920px) {
+  .frame{
+    width: 1440px;
+    height: 810px;
+  }
+  .magicball.magicball1{
+    width: 83px;
+    height: 83px;
+  }
+}
+@media (max-height: 1080px) {
+  .frame{
+    width: 1440px;
+    height: 810px;
+  }
+  .magicball.magicball1{
+    width: 83px;
+    height: 83px;
+  }
+}
+
+
+@media (max-width: 1440px) {
+  .frame{
+    width: 1280px;
+    height: 720px;
+  }
+}
+
+@media (max-height: 810px) {
+  .frame{
+    width: 1280px;
+    height: 720px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .frame{
+    width: 960px;
+    height: 540px;
+  }
+}
+
+@media (max-height: 720px) {
+  .frame{
+    width: 960px;
+    height: 540px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-button {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-button {
+    width: 15px;
+    height: 15px;
+    top: 70%;
+    left: 75%;
+  }
+}
+
+.backgroud.clicked{
+  animation: mouse-movement 0.5s linear 5;
+}
+@keyframes mouse-movement {
+  0% {
+    background-image: url("../../../img/main/main_page_newcolor.jpg");
+  }
+  100% {
+    background-image: url("../../../img/main/main_page_mousemove.jpg");
+  }
+  
+}
+/* magicBall */
+.magicball {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* width: 6vw;
+  height:6vw; */
+  width: 110px;
+  height: 110px;
+  /* min-height: 10px;
+  min-width: 10px; */
+  position: absolute;
+  top : 47%;
+  left: 47%;
+}
+.magicball1 {
+  background-image: url("../../../img/main/magicBall.png");
+  border-radius: 50%;
+}
+.magicball:hover {
+  box-shadow: -10px -10px 40px rgba(132, 52, 135, 0.9),
+              4px 4px 6px rgba(0, 0, 0, 0.2),
+              inset -1px -1px 4px rgba(255, 255, 255, 0.05),
+              inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+  color : rgb(132, 52, 135);
+}
+
+.magicball1.magicball-hover {
+  animation: glow 1.5s linear infinite;
+}
+
+@keyframes glow {
+  0% {
+    filter: hue-rotate(1);
+  }
+  50% {
+    filter: saturate(3);
+  }
+  100% {
+    filter: saturate(1);
+  }
+}
+
+
+/* card css */
+  /* card back front를 담은 div */
+  #cards {
+    /* perspective를 주면 좀더 원근감을 줄 수 있음 */
+    perspective:1000px;
+    position: absolute;
+    width: 6vh;
+    height: 5vw;
+  }
+  .card {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    /* 뒤에 카드가 안보이게 됨 */
+    background-repeat: no-repeat;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    transition: 1s;
+    box-shadow : -5px 5px 5px rgba(23, 23, 23, 0.76);
+  }
+
+  /* 카드 뒷면 기본*/
+  #cards .card.back {
+    background-image: url("../../../img/component/hanaCardBackFit.png");
+    /* position absolute를 적용해 back과 fornt의 위치를 주게됨 */
+    position: absolute; 
+    transform: rotateY(0deg);
+  }
+  /* 카드 앞면 기본 */
+  #cards .card.front {
+    background-image: url("../../../img/cards/death.jpg");
+    transform: rotateY(-180deg);
+  }
+  /* 클릭되었을 떄 효과 */
+  #cards.clicked .card.back{
+    transform: rotateY(180deg);
+  }
+  /* 클릭되었을 떄 효과 */
+  #cards.clicked .card.front{
+    transform: rotateY(0deg);
+  }
+
+  /* card 위치 */
+
+  #cards {
+    left: 25%;
+    top : 70%;
+    transform: rotate(40deg);
+  }
+  #cards.card1 {
+    /* background-image: url(/img/cards/Strength.jpg); */
+    left: 35%;
+    top : 65%;
+    transform: rotate(20deg);
+  }
+  #cards.card1 .card.front {
+    background-image: url("../../../img/cards/Strength.jpg");
+  }
+
+  #cards.card2 {
+    left: 50%;
+    top : 75%;
+    transform: rotate(-30deg);
+  }
+  #cards.card2 .card.front {
+    background-image: url("../../../img/cards/temperance.png");
+  }
+  #cards.card3 {
+    left: 60%;
+    top : 70%;
+    transform: rotate(-70deg);
+  }
+  #cards.card3 .card.front {
+    background-image: url("../../../img/cards/theMoon.jpg");
+  }
+  #cards.card4 {
+    left: 70%;
+    top : 65%;
+    transform: rotate(-50deg);
+  }
+  #cards.card4 .card.front {
+    background-image: url("../../../img/cards/theStar.jpg");
+  }
+  /* modal css */
+  .modal {
+    margin: 0;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-bg {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vh;
+    height: 40vh;
+    background-image: url('../../../img/component/speechBubble.jpg');
+  }
+  
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+  }
+  
+  #modal-message {
+    color: #fff;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  
+  .modal-button {
+    position: absolute;
+    top: 75%;
+    left: 80%;
+    cursor: pointer;
+    transition: filter 0.3s ease;
+  }
+  
+  .modal-button:hover {
+    filter: brightness(0.5);
+  }
+  
+  .button-wrapper {
+    display: flex;
+    position: absolute;
+    top: 70%;
+    left: 35%;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+  }
