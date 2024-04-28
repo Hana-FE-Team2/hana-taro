@@ -71,7 +71,9 @@ $(document).ready(function () {
       messages = [
         "점꾀는 어떠셨나요... \n다음 버튼을 누르면 결과화면으로 넘어갑니다....",
       ];
-      $.getScript("./js/modal.js"); // 다음 화면 불러오기
+      $.getScript("./js/app.js", function () {
+        loadNextContent("hanat-05.html");
+      });
     }
   });
 });
