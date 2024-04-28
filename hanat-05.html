@@ -53,7 +53,7 @@
       .frame-card {
         width: 141px;
         height: 244px;
-        background-image: url("./img/cards/death.jpg");
+        /* background-image: url("./img/cards/death.jpg"); */
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -175,13 +175,12 @@
       $('#modal').fadeOut();
       loadNextContent('shuffle-card.html');
     });
-    // selectedNum.forEach(elem => {
-    //   console.log(elem)
-    // });
-    // selectedDir.forEach(elem => {
-    //   console.log(elem)
-    // })
-    // card_lists[0] 
-    // console.log(card_lists[0].)
+    // selectedNum = [1,2,3]
+    // console.log(card_lists)
+    const cardbox = document.querySelectorAll(".card-box-frame")
+    cardbox.forEach((ele, idx) => {
+      ele.children[0].style.backgroundImage = `url(${card_lists[selectedNum[idx]].url})`
+      console.log(ele.children[0])
+    })
   </script>
 </html>
