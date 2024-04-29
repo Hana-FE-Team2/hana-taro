@@ -2,8 +2,8 @@ var messages = [
   '정신을 집중해서 카드에 손을 올려주세요.....\n손을 올리면 카드를 섞습니다.....',
 ];
 openedCard = [];
+var shuffleFlag = false;
 
-console.log(selectedNum);
 $(function () {
   $(document).ready(function () {
     if (!window.isShuffleBound) {
@@ -58,17 +58,22 @@ $(function () {
 });
 
 async function makeShuffle() {
+  if (shuffleFlag) return;
   var random = Math.floor(Math.random() * 2);
+  shuffleFlag = true;
   if (random == 0) {
     await shuffle1();
+    shuffleFlag = false;
   } else {
     await shuffle2();
+    shuffleFlag = false;
   }
   messages = ['카드를 다시 섞겠습니까.....?'];
   $('#open-modal-multi').click();
 }
 
 function shuffle1() {
+  console.log('shuffle1');
   return new Promise((resolve) => {
     const card = document.querySelectorAll('.card-shuffle');
     const SPEED = 100;
@@ -99,6 +104,7 @@ function shuffle1() {
 // Improved shuffle2 with async-await and promises
 var getRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
 var shuffle2 = async () => {
+  console.log('shuffle2');
   return new Promise(async (resolve) => {
     const SHUFFLE_NUM = 3; // 셔플 횟수
     const TIME = 750; // 셔플 애니메이션 시간
