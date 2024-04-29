@@ -3,17 +3,14 @@ $(document).ready(function () {
   const messageList = $('#messageList li'); // Get the list of messages
   const maxNextButtonClicks = messageList.length; // Set maxNextButtonClicks to the length of the message list
 
-  console.log('maxNextButtonClicks:', maxNextButtonClicks);
-  console.log('nextButtonClickCount:', nextButtonClickCount);
-
   // Function to open the modal
   function openModal() {
     const modal = $('#modal');
     console.log('Opening modal');
-    // Load modal content from modal.html
-    $.get('modal.html', function (data) {
+    // Load modal content from /modal.modal.html
+    $.get('/modal.modal.html', function (data) {
       // Insert modal content into the modal div
-      modal.html(data);
+      /modal.modal.html(data);
       // Display the first message from the list
       $('#modalMessage').text(messageList.eq(0).text());
       modal.fadeIn();

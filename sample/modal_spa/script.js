@@ -10,10 +10,10 @@ $(document).ready(function () {
   function openModal() {
     const modal = $('#modal');
     console.log('Opening modal');
-    // Load modal content from modal.html
-    $.get('modal.html', function (data) {
+    // Load modal content from /modal.modal.html
+    $.get('/modal.modal.html', function (data) {
       // Insert modal content into the modal div
-      modal.html(data);
+      /modal.modal.html(data);
       // Display the first message from the list
       $('#modal-message').text(messageList.eq(0).text());
       modal.fadeIn();

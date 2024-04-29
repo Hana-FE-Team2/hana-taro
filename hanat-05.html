@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css" />
     <style>
@@ -24,14 +24,14 @@
       }
       /* title css */
       .title-box {
-        width :80%;
+        width: 80%;
         height: 10%;
         position: absolute;
         top: 10%;
       }
       /* card css */
       .card-box {
-        width :80%;
+        width: 80%;
         height: 30%;
         position: absolute;
         top: 20%;
@@ -39,8 +39,8 @@
         justify-content: center;
         align-items: center;
       }
-      .card-box-frame { 
-        background-image: url("./img/component/cardFrame.png");
+      .card-box-frame {
+        background-image: url('./img/component/cardFrame.png');
         width: 302px;
         height: 277px;
         background-size: contain;
@@ -71,7 +71,7 @@
       .description-box-frame {
         width: 444px;
         height: 200px;
-        background-image: url("/img/component/descriptionFrame.png");
+        background-image: url('/img/component/descriptionFrame.png');
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -101,21 +101,19 @@
       button.choice {
         width: 128px;
         height: 44px;
-        background-color: #F5EDD8;
-        color: #482A30;
+        background-color: #f5edd8;
+        color: #482a30;
         transition: 0.5s;
       }
       button.choice:hover {
         scale: (1.1);
-        background-color: #F5EDD8;
-        color: #482A30;
-        border: #FFD67A solid 1px;
+        background-color: #f5edd8;
+        color: #482a30;
+        border: #ffd67a solid 1px;
       }
-
-      
     </style>
-</head>
-<body style="height: 100vh">
+  </head>
+  <body style="height: 100vh">
     <div class="container">
       <div class="last-container">
         <!-- 텍스트 박스 -->
@@ -155,37 +153,15 @@
         </div>
       </div>
     </div>
-</body>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   ></script>
   <script src="/js/app.js"></script>
-  <script src="/js/card.js"></script>
   <script src="/js/cards.js"></script>
-  <script>
-    $(document).on('click', '#tohome', function (data) {
-      $('#modal').fadeOut();
-      loadNextContent('main-page.html');
-    });
-    $(document).on('click', '#tohanat-02', function (data) {
-      $('#modal').fadeOut();
-      loadNextContent('shuffle-card.html');
-    });
-    var cardbox = document.querySelectorAll(".card-box-frame")
-    cardbox.forEach((ele, idx) => {
-      ele.children[0].style.backgroundImage = `url(${card_lists[selectedNum[idx]].url})`
-      console.log(selectedNum[idx])
-      console.log(selectedNum)
-      if (selectedDir[idx] == 1) {
-        ele.children[0].style.transform = "rotate(180deg)"
-      } 
-    })
-    var descriptionBox = document.querySelectorAll(".description-box-frame")
-    descriptionBox.forEach((ele, idx) => {
-      ele.children[0].innerText = card_lists[selectedNum[idx]].description[selectedDir[idx]]
-    })
-  </script>
+  <script src="/js/hanat-05.js"></script>
+  <script></script>
 </html>

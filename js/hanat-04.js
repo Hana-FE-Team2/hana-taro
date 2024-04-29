@@ -1,5 +1,6 @@
 var openedCard = []; // 오픈한 카드 번호를 저장할 배열 선언
-
+console.log(selectedNum);
+var messages = ['당신의 금전운을 점쳐줄 카드를 선택해 \n결과를 확인하세요....'];
 $(document).ready(function () {
   // 카드 뒤집기 함수
   $(function () {
@@ -27,20 +28,20 @@ $(document).ready(function () {
       console.log(selectedDir[cardId]);
 
       setTimeout(function () {
-        openModal(cardId); // 뒤집으면 모달 열기
+        openModal2(cardId); // 뒤집으면 모달 열기
       }, 1000);
     });
   });
 
   // 모달 열기 함수
-  function openModal(cardId) {
+  function openModal2(cardId) {
     if (!openedCard.includes(cardId)) {
       // 모든 카드를 뒤집었는지 확인하기 위한 검사
       openedCard.push(cardId);
     }
     const modal = $('#modal');
-    // Load modal content from modal.html
-    $.get('hanat-04-modal.html', function (data) {
+    // Load modal content from /modal.modal.html
+    $.get('../modal/hanat-04-modal.html', function (data) {
       // Insert modal content into the modal div
       modal.html(data);
       // Display a card
@@ -62,18 +63,27 @@ $(document).ready(function () {
       modal.css('display', 'flex');
     });
   }
+});
 
-  // 모달 종료
-  $(document).on('click', '#next-modal2', function () {
-    $('#modal').fadeOut();
-    if (openedCard.length > 2) {
-      // 다 뒤집었을 경우
+// 모달 종료
+$(document).on('click', '#next-modal2', function () {
+  $('#modal').fadeOut();
+  if (openedCard.length > 2) {
+    // 다 뒤집었을 경우
+    setTimeout(() => {
+      // 약 2초 후 모달을 띄운다.
       messages = [
         '점꾀는 어떠셨나요... \n다음 버튼을 누르면 결과화면으로 넘어갑니다....',
       ];
-      $.getScript('./js/app.js', function () {
-        loadNextContent('hanat-05.html');
-      });
-    }
-  });
+      $('#open-modal').click();
+    }, 2000);
+  }
+});
+
+$(document).on('click', '#next-modal', function () {
+  if (openedCard.length > 2) {
+    $('#modal').fadeOut();
+
+    loadNextContent('hanat-05.html');
+  }
 });
