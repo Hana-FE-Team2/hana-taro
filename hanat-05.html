@@ -81,7 +81,7 @@
         justify-content: center;
         padding: 20px;
         color: #fff;
-        font-size: 1.4rem;
+        font-size: 1.1rem;
         text-align: center;
       }
       .description-content {
@@ -98,19 +98,18 @@
         display: flex;
         justify-content: space-between;
       }
-      button {
+      button.choice {
         width: 128px;
         height: 44px;
         background-color: #F5EDD8;
         color: #482A30;
-        transition: 1s;
+        transition: 0.5s;
       }
-      button:hover {
-        width: 132px;
-        height: 47px;
+      button.choice:hover {
+        scale: (1.1);
         background-color: #F5EDD8;
         color: #482A30;
-        border: #FFD67A solid 2px;
+        border: #FFD67A solid 1px;
       }
 
       
@@ -141,18 +140,18 @@
         <!-- 설명 박스 -->
         <div class="description-box">
           <div class="description-box-frame">
-            <div class="description-content">asdfasdfasddddddddddddddddddddddddddddddddddd</div>
+            <div class="description-content"></div>
           </div>
           <div class="description-box-frame">
-            <span class="description-content">asdfasdf</span>
+            <span class="description-content"></span>
           </div>
           <div class="description-box-frame">
-            <span class="description-content">asdfasdf</span>
+            <span class="description-content"></span>
           </div>
         </div>
         <div class="button-box">
-          <button id="tohome">홈으로</button>
-          <button id="tohanat-02">다시하기</button>
+          <button class="choice" id="tohome">홈으로</button>
+          <button class="choice" id="tohanat-02">다시하기</button>
         </div>
       </div>
     </div>
@@ -175,12 +174,18 @@
       $('#modal').fadeOut();
       loadNextContent('shuffle-card.html');
     });
-    // selectedNum = [1,2,3]
-    // console.log(card_lists)
-    const cardbox = document.querySelectorAll(".card-box-frame")
+    var cardbox = document.querySelectorAll(".card-box-frame")
     cardbox.forEach((ele, idx) => {
       ele.children[0].style.backgroundImage = `url(${card_lists[selectedNum[idx]].url})`
-      console.log(ele.children[0])
+      console.log(selectedNum[idx])
+      console.log(selectedNum)
+      if (selectedDir[idx] == 1) {
+        ele.children[0].style.transform = "rotate(180deg)"
+      } 
+    })
+    var descriptionBox = document.querySelectorAll(".description-box-frame")
+    descriptionBox.forEach((ele, idx) => {
+      ele.children[0].innerText = card_lists[selectedNum[idx]].description[selectedDir[idx]]
     })
   </script>
 </html>

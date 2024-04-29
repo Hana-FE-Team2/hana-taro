@@ -1,4 +1,4 @@
-const card_lists = [
+var card_lists = [
   {
     nameEn: "The fool",
     nameKo: "바보",
