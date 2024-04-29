@@ -1,9 +1,12 @@
 $(document).on('click', '#tohome', function (data) {
   $('#modal').fadeOut();
-  loadNextContent('hanat-01.html');
+  window.location.reload();
 });
 $(document).on('click', '#tohanat-02', function (data) {
   $('#modal').fadeOut();
+  messages = [
+    '정신을 집중해서 카드에 손을 올려주세요.....\n손을 올리면 카드를 섞습니다.....',
+  ];
   loadNextContent('hanat-02.html');
 });
 var cardbox = document.querySelectorAll('.card-box-frame');
