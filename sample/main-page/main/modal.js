@@ -7,8 +7,8 @@ $(function () {
   // 실제 모달을 띄우는 함수 - 화살표 버튼 하나만 있는 경우
   function openModal(messageList) {
     const modal = $('#modal');
-    $.get('modal.html', function (data) {
-      modal.html(data);
+    $.get('/modal.modal.html', function (data) {
+      /modal.modal.html(data);
       const messageText = messageList[nextButtonClickCount];
       const messageTextWithBr = messageText.replace(/\n/g, '<br>');
 
@@ -24,7 +24,7 @@ $(function () {
   function openModalMulti(messageList) {
     const modal = $('#modal');
     $.get('modal-multi.html', function (data) {
-      modal.html(data);
+      /modal.modal.html(data);
       const messageText = messageList[nextButtonClickCount];
       const messageTextWithBr = messageText.replace(/\n/g, '<br>');
 

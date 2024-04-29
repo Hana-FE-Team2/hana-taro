@@ -7,23 +7,7 @@ $(function () {
   // 실제 모달을 띄우는 함수 - 화살표 버튼 하나만 있는 경우
   function openModal(messageList) {
     var modal = $('#modal');
-    $.get('modal.html', function (data) {
-      modal.html(data);
-      var messageText = messageList[nextButtonClickCount];
-      var messageTextWithBr = messageText.replace(/\n/g, '<br>');
-
-      $('#modal-message').html(messageTextWithBr);
-
-      animateLetters($('#modal-message'));
-
-      modal.fadeIn();
-    });
-  }
-
-  // 실제 모달을 띄우는 함수 - 이건 김민재한테만 해당함
-  function openModalMulti(messageList) {
-    var modal = $('#modal');
-    $.get('modal-multi.html', function (data) {
+    $.get('../modal/modal.html', function (data) {
       modal.html(data);
       var messageText = messageList[nextButtonClickCount];
       var messageTextWithBr = messageText.replace(/\n/g, '<br>');
@@ -46,12 +30,6 @@ $(function () {
   // open-modal에 click 이벤트 발생 시, 화살표 버튼 있는 모달을 띄움
   $('#open-modal').on('click', function () {
     openModal(messages);
-    nextButtonClickCount = 0;
-  });
-
-  // open-modal-multi에 click 이벤트 발생 시, 어쩌고.. 이건 @김민재 꺼라 안 건드려도 됨
-  $('#open-modal-multi').on('click', function () {
-    openModalMulti(messages);
     nextButtonClickCount = 0;
   });
 

@@ -1,21 +1,21 @@
 // card와 관련된 js 파일
 
-$(function () {
-  $(document).on('mouseover', '.card-shuffle', function () {
-    this.hoverTimeout = setTimeout(() => {
-      makeShuffle();
-    }, 2000);
-  });
+// $(function () {
+//   $(document).on('mouseover', '.card-shuffle', function () {
+//     this.hoverTimeout = setTimeout(() => {
+//       makeShuffle();
+//     }, 2000);
+//   });
 
-  $(document).on('click', '#shuffle-again', function () {
-    $('#modal').fadeOut();
-    makeShuffle();
-  });
+//   $(document).on('click', '#shuffle-again', function () {
+//     $('#modal').fadeOut();
+//     makeShuffle();
+//   });
 
-  $(document).on('mouseout', '.card-shuffle', function () {
-    clearTimeout(this.hoverTimeout);
-  });
-});
+//   $(document).on('mouseout', '.card-shuffle', function () {
+//     clearTimeout(this.hoverTimeout);
+//   });
+// });
 
 /* 카드가 쌓여보이도록 조정하는 함수 */
 var DISTANCE = [-275, -225, -175, -125];
@@ -85,77 +85,6 @@ $(document).ready(() => {
 
 // @장규은: 규은이도 카드 다 선택하면 모달을 띄워야 하는데 이 부분 참고하면 좋을 듯
 // 대신 너는 open-modal-multi가 아니라 open-modal을 사용하면 될 것 같아
-async function makeShuffle() {
-  var random = Math.floor(Math.random() * 2);
-  if (random == 0) {
-    await shuffle1();
-  } else {
-    await shuffle2();
-  }
-  messages = ['카드를 다시 섞겠습니까.....?'];
-  $('#open-modal-multi').click();
-}
-
-function shuffle1() {
-  return new Promise((resolve) => {
-    const card = document.querySelectorAll('.card-shuffle');
-    const SPEED = 100;
-    const DISTANCE = 250;
-    let maxTimeout = 0;
-
-    for (let i = 0; i < card.length; i++) {
-      setTimeout(() => {
-        card[i].style.transform =
-          i % 2 === 0
-            ? `translate(${DISTANCE}px)`
-            : `translate(-${DISTANCE}px)`;
-      }, SPEED * i);
-      maxTimeout = SPEED * i;
-    }
-
-    setTimeout(() => {
-      for (let i = 0; i < card.length; i++) {
-        setTimeout(() => {
-          card[i].style.transform = 'translate(0px)';
-          if (i === card.length - 1) resolve();
-        }, SPEED * i);
-      }
-    }, maxTimeout + SPEED);
-  });
-}
-
-// Improved shuffle2 with async-await and promises
-var getRandom = (min, max) => Math.floor(Math.random() * (max - min) + min);
-var shuffle2 = async () => {
-  return new Promise(async (resolve) => {
-    const SHUFFLE_NUM = 3; // 셔플 횟수
-    const TIME = 750; // 셔플 애니메이션 시간
-    const card = document.querySelectorAll('.card-shuffle');
-    for (let j = 0; j < SHUFFLE_NUM; j++) {
-      for (let i = 0; i < card.length; i++) {
-        let randomX = getRandom(-600, 600);
-        let randomY = getRandom(-150, 150);
-        let randomAngle = getRandom(-70, 70);
-        setTimeout(() => {
-          card[
-            i
-          ].style.cssText += `transform: rotate(${randomAngle}deg) translate(${randomX}px, ${randomY}px)`;
-        }, TIME * (j + 1));
-      }
-    }
-
-    setTimeout(() => {
-      for (let i = 0; i < card.length; i++) {
-        setTimeout(() => {
-          card[
-            i
-          ].style.cssText += `transform: rotate(0deg) translate(0px, 0px)`;
-          if (i === card.length - 1) resolve();
-        }, TIME);
-      }
-    }, TIME * (SHUFFLE_NUM + 1));
-  });
-};
 
 // 카드 선택 애니메이션을 위한 변수 선언
 var CARD_COUNT = 22; // 타로 카드 갯수
