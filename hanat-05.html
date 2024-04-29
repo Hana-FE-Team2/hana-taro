@@ -10,6 +10,7 @@
         border: black solid 1px;
       } */
       .container {
+        width: 100%;
         position: relative;
         display: flex;
         justify-content: center;
@@ -17,10 +18,13 @@
       }
       /* container */
       .last-container {
-        width: 80%;
+        width: 60%;
         height: 80%;
         display: flex;
         justify-content: center;
+      }
+      .card-desc-wrapper {
+        flex: 1;
       }
       /* title css */
       .title-box {
@@ -40,7 +44,7 @@
         align-items: center;
       }
       .card-box-frame {
-        background-image: url('./img/component/cardFrame.png');
+        background-image: url("./img/component/cardFrame.png");
         width: 302px;
         height: 277px;
         background-size: contain;
@@ -71,7 +75,7 @@
       .description-box-frame {
         width: 444px;
         height: 200px;
-        background-image: url('/img/component/descriptionFrame.png');
+        background-image: url("/img/component/descriptionFrame.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -93,7 +97,7 @@
         width: 270px;
         height: 44px;
         position: absolute;
-        top: 80%;
+        top: 90%;
         left: 70%;
         display: flex;
         justify-content: space-between;
@@ -111,32 +115,97 @@
         color: #482a30;
         border: #ffd67a solid 1px;
       }
+      .card-desc-wrapper {
+        display: flex;
+        flex-direction: column;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .card-desc-title {
+        flex: 1;
+        color: wheat;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .card-desc-img {
+        flex: 3;
+        background-image: url("./img/component/cardFrame.png");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .card-desc-text {
+        flex: 2;
+        background-image: url("/img/component/descriptionFrame.png");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        color: #fff;
+        font-size: 1.1rem;
+        text-align: center;
+      }
+      .card-desc-img > img {
+        width: 45%;
+      }
+      .card-desc-text {
+        font-size: 10px;
+        padding: 0px 20px 0px 20px;
+      }
     </style>
   </head>
   <body style="height: 100vh">
     <div class="container">
       <div class="last-container">
         <!-- 텍스트 박스 -->
-        <div class="title-box">
-          <div class="title-box-text"></div>
-          <div class="title-box-text"></div>
-          <div class="title-box-text"></div>
+        <div class="card-desc-wrapper">
+          <div class="card-desc-title">과거</div>
+          <div class="card-desc-img">
+            <img id="past-img" src="" alt="" />
+          </div>
+          <div id="past-text" class="card-desc-text"></div>
         </div>
-        <div class="card-box">
-          <!-- 카드 박스 프레임 -->
-          <div class="card-box-frame">
-            <!-- 프레임 속 카드 -->
-            <div class="frame-card"></div>
+        <div class="card-desc-wrapper">
+          <div class="card-desc-title">현재</div>
+          <div class="card-desc-img">
+            <img id="current-img" src="" alt="" />
           </div>
-          <div class="card-box-frame">
-            <div class="frame-card"></div>
-          </div>
-          <div class="card-box-frame">
-            <div class="frame-card"></div>
-          </div>
+          <div id="current-text" class="card-desc-text"></div>
         </div>
+        <div class="card-desc-wrapper">
+          <div class="card-desc-title">미래</div>
+          <div class="card-desc-img">
+            <img id="future-img" src="" alt="" />
+          </div>
+          <div id="future-text" class="card-desc-text"></div>
+        </div>
+
+        <!-- <div class="title-box-text"></div>
+        <div class="title-box-text"></div>
+        <div class="title-box-text"></div> -->
+
+        <!-- <div class="card-box">
+          <div class="card-box-frame">
+            <div class="frame-card"></div>
+          </div>
+          <div class="card-box-frame">
+            <div class="frame-card"></div>
+          </div>
+          <div class="card-box-frame">
+            <div class="frame-card"></div>
+          </div>
+        </div> -->
         <!-- 설명 박스 -->
-        <div class="description-box">
+        <!-- <div class="description-box">
           <div class="description-box-frame">
             <div class="description-content"></div>
           </div>
@@ -146,7 +215,7 @@
           <div class="description-box-frame">
             <span class="description-content"></span>
           </div>
-        </div>
+        </div> -->
         <div class="button-box">
           <button class="choice" id="tohome">홈으로</button>
           <button class="choice" id="tohanat-02">다시하기</button>
