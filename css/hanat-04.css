@@ -27,15 +27,16 @@ body {
 .flip-inner {
   position: relative;
   transition: transform 1.5s ease;
-  width: 150px;
-  height: 225px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 200px;
+  height: 300px;
+  box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.2); /* 오른쪽 위에 밝은 그림자와 왼쪽 아래 그림자 */
   transform-style: preserve-3d;
   perspective: 1000px;
 }
 .flip-inner img {
   width: 100%;
   height: 100%;
+  border-radius: 15px;
 }
 .flip-inner img:hover {
   cursor: pointer;
@@ -74,10 +75,11 @@ body {
 }
 
 #modal-img {
-  width: auto;
+  width: 30vh;
   height: 45vh;
   margin: 2%;
   display: flex;
+  border-radius: 15px;
 }
 
 .modal-bg {
@@ -87,4 +89,33 @@ body {
   width: 100vh;
   height: 40vh;
   background-image: url("../img/component/speechBubble.jpg");
+}
+
+@media all and ((min-width: 768px) and (max-width: 1023px)),
+  ((min-height: 541px) and (max-height: 640px)) {
+  .flip-inner,
+  .flip-inner img {
+    width: 150px;
+    height: 225px;
+    border-radius: 15px;
+  }
+}
+/* 해상도 ~ 767px */
+@media all and (min-width: 576px) and (max-width: 767px),
+  ((min-height: 420px) and (max-height: 540px)) {
+  .flip-inner,
+  .flip-inner img {
+    width: 100px;
+    height: 150px;
+    border-radius: 10px;
+  }
+}
+/* 해상도 ~ 767px */
+@media all and (max-width: 575px), (max-height: 419px) {
+  .flip-inner,
+  .flip-inner img {
+    width: 50px;
+    height: 75px;
+    border-radius: 5px;
+  }
 }
