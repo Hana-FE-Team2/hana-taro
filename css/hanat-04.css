@@ -108,6 +108,7 @@ body {
 }
 
 .modal-bg {
+  display: flex;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -136,6 +137,10 @@ body {
     height: 450px;
     font-size: 1.5rem;
   }
+  #modal-img {
+    width: 150px;
+    height: 225px;
+  }
 }
 /* 해상도 ~ 767px */
 @media all and (min-width: 576px) and (max-width: 767px),
@@ -161,6 +166,10 @@ body {
   #card-title > span {
     transform: rotate(0deg);
   }
+  #modal-img {
+    width: 150px;
+    height: 225px;
+  }
 }
 /* 해상도 ~ 767px */
 @media all and (max-width: 575px), (max-height: 419px) {
@@ -185,5 +194,11 @@ body {
   }
   #card-title > span {
     transform: rotate(0deg);
+  }
+  #modal-img {
+    width: 75px;
+    height: 112.5px;
+    position: absolute;
+    margin-top: 50px;
   }
 }
