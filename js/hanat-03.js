@@ -1,6 +1,7 @@
 var messages = ["카드를 스크롤해서\n원하는 카드 세장을 선택해주세요....."];
 // 카드 선택 애니메이션 기본 설정
 $(document).ready(() => {
+  playAudioWithStorage();
   $(window).scrollTop(0); // 첫 화면은 스크롤이 0부터 시작한다.
   index = CARD_COUNT - 1; // index는 21부터 시작한다.
   $(`#${index}`).addClass("current-card"); // 첫 index에 클릭할 수 있는 클래스 지정
