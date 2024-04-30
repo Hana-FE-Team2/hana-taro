@@ -14,15 +14,33 @@ body {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  justify-content: center;
+  align-items: center;
+}
+.flip {
+  width: 200px;
+  height: 300px;
 }
 .flip-outer {
   position: absolute;
   display: flex;
   justify-content: space-around;
-  top: 10vh;
-  padding-left: 10%;
-  padding-right: 10%;
-  width: 80%;
+  /* top: 10vh; */
+  /* padding-left: 10%;
+  padding-right: 10%; */
+  margin-left: auto;
+  margin-right: auto;
+  left: 0px;
+  right: 0px;
+  /* width: 80%; */
+  width: 1000px;
+  height: 500px;
+}
+.flip-outer span:nth-child(1) {
+  transform: rotate(-30deg);
+}
+.flip-outer span:nth-child(3) {
+  transform: rotate(30deg);
 }
 .flip-inner {
   position: relative;
@@ -34,8 +52,8 @@ body {
   perspective: 1000px;
 }
 .flip-inner img {
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: 300px;
   border-radius: 15px;
 }
 .flip-inner img:hover {
@@ -57,9 +75,16 @@ body {
   position: relative;
   color: #f0963c;
   font-size: 1.8rem;
-  top: 50vh;
-  padding-left: 30%;
-  padding-right: 30%;
+  /* top: 50vh; */
+  top: 400px;
+  /* padding-left: 30%;
+  padding-right: 30%; */
+  margin-left: 0px;
+  margin-right: 0px;
+  left: 0px;
+  right: 0px;
+  width: 200px;
+  height: 500px;
 }
 .modal {
   margin: 0;
@@ -93,29 +118,72 @@ body {
 
 @media all and ((min-width: 768px) and (max-width: 1023px)),
   ((min-height: 541px) and (max-height: 640px)) {
+  .flip,
   .flip-inner,
   .flip-inner img {
     width: 150px;
     height: 225px;
     border-radius: 15px;
   }
+  .flip-outer {
+    width: 850px;
+    height: 325px;
+  }
+  #card-title {
+    /* padding-left: 30%;
+    padding-right: 30%; */
+    width: 150px;
+    height: 450px;
+    font-size: 1.5rem;
+  }
 }
 /* 해상도 ~ 767px */
 @media all and (min-width: 576px) and (max-width: 767px),
   ((min-height: 420px) and (max-height: 540px)) {
+  .flip,
   .flip-inner,
   .flip-inner img {
     width: 100px;
     height: 150px;
     border-radius: 10px;
   }
+  .flip-outer {
+    width: 500px;
+    height: 250px;
+  }
+  #card-title {
+    /* padding-left: 30%;
+    padding-right: 30%; */
+    width: 200px;
+    height: 500px;
+    font-size: 1.2rem;
+  }
+  #card-title > span {
+    transform: rotate(0deg);
+  }
 }
 /* 해상도 ~ 767px */
 @media all and (max-width: 575px), (max-height: 419px) {
+  .flip,
   .flip-inner,
   .flip-inner img {
     width: 50px;
     height: 75px;
     border-radius: 5px;
+  }
+  .flip-outer {
+    width: 400px;
+    height: 150px;
+  }
+  #card-title {
+    /* padding-left: 30%;
+    padding-right: 30%; */
+    width: 200px;
+    height: 500px;
+    font-size: 1rem;
+    top: 325px;
+  }
+  #card-title > span {
+    transform: rotate(0deg);
   }
 }
