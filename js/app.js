@@ -1,11 +1,5 @@
-// function loadNextContent(nextPage) {
-//   $.get(nextPage, function (data) {
-//     $('body').html(data);
-//   });
-// }
 function removeAllEventListeners() {
-  // This will remove all event handlers bound with jQuery on the body and its children
-  $('body').find('*').off(); // Adjust selector as needed for more specific elements
+  $('body').find('*').off();
 }
 
 function removeAllScripts() {
@@ -24,16 +18,35 @@ function loadScripts(scripts) {
 }
 
 function loadNextContent(nextPage) {
-  $.get(nextPage, function (data) {
-    // Remove all existing event listeners to prevent duplicates
-    removeAllEventListeners();
+  var overlay = $('<div>')
+    .css({
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'black',
+      opacity: 0,
+      zIndex: 10000,
+    })
+    .appendTo('body');
 
-    var tempDiv = $('<div>').html(data);
-    var scripts = tempDiv.find('script').remove();
-    $('body').html(tempDiv.html());
+  overlay.animate({ opacity: 1 }, 2000, function () {
+    $.get(nextPage, function (data) {
+      removeAllEventListeners();
 
-    // It might be prudent to rebind the events or reinitialize scripts here
-    removeAllScripts();
-    loadScripts(scripts);
+      var tempDiv = $('<div>').html(data);
+      var scripts = tempDiv.find('script').remove();
+
+      overlay.animate({ opacity: 1 }, 2000, function () {
+        overlay.remove();
+      });
+
+      $('body').html(tempDiv.html());
+
+      removeAllScripts();
+
+      loadScripts(scripts);
+    });
   });
 }
