@@ -57,7 +57,7 @@ body {
   border-radius: 15px;
 }
 .flip-inner img:hover {
-  cursor: pointer;
+  cursor: url("../img/component/cursor2.cur"), auto;
   transform: scale(1.1);
   transition: transform 1.5s;
 }
