@@ -2,7 +2,7 @@
   <h2 align="center">Index</h2>
   <p align="center">
     <a href="#프로젝트-구조">프로젝트 구조</a> /
-    <a href="#프로젝트-구동">프로젝트 구동</a> /
+    <a href="#프로젝트-구동">프로젝트 구동</a> 
   </p>
 <div>
 
