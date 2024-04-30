@@ -1,5 +1,7 @@
+playAudioWithStorage();
 $(document).on("click", "#tohome", function (data) {
   $("#modal").fadeOut();
+  localStorage.clear;
   window.location.reload();
 });
 $(document).on("click", "#tohanat-02", function (data) {

@@ -6,6 +6,7 @@ var shuffleFlag = false;
 
 $(function () {
   $(document).ready(function () {
+    playAudioWithStorage();
     if (!window.isShuffleBound) {
       $(document).on("mouseover", ".card-shuffle", function () {
         clearTimeout(this.hoverTimeout); // Clear any existing timeouts
