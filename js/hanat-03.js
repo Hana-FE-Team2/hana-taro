@@ -38,6 +38,8 @@ $(window).on("scroll", () => {
   lastScroll = scroll;
 });
 
+var changingWindowSize = false;
+
 // 카드 선택 애니메이션 (e.target.id로 동작)
 $(document).on("click", ".current-card", (e) => {
   let id = e.target.id; // 클릭 이벤트가 발생한 카드 번호
@@ -54,6 +56,7 @@ $(document).on("click", ".current-card", (e) => {
   $(`#${id}`).addClass(`selected-card`); // 선택된 카드는 selected-card 클래스를 부여한다.
   $(`#${id - 1}`).addClass("current-card"); // 선택된 카드의 다음 카드를 선택할 수 있도록 클래스 부여한다.
   $(window).scrollTop((CARD_COUNT - id - 1) * SCROLL_SCOPE + 100); // 선택된 카드의 다음 카드로 스크롤을 이동한다.
+  changingWindowSize = true;
 
   $(`#${id}`).css({
     // 선택된 카드를 이동시키는 애니메이션
@@ -74,6 +77,7 @@ $(document).on("click", ".current-card", (e) => {
 
 $(document).on("click", "#next-modal", function () {
   if (cnt == 3) {
+    changingWindowSize = false;
     $("#modal").fadeOut();
     loadNextContent("hanat-04.html");
     cnt = 0;
