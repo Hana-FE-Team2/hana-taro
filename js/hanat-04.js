@@ -1,12 +1,10 @@
 var openedCard = []; // 오픈한 카드 번호를 저장할 배열 선언
-console.log(selectedNum);
 var messages = ['당신의 금전운을 점쳐줄 카드를 선택해 \n결과를 확인하세요....'];
 $(document).ready(function () {
   // 카드 뒤집기 함수
   $(function () {
     $('.flip-inner').on('click', function () {
       const cardId = parseInt($(this).attr('id').slice(4)); // 선택한 카드의 id 불러오기
-      console.log(cardId);
 
       $('#card' + cardId + '-front').attr(
         // 선택한 카드의 이미지 추가
@@ -24,8 +22,6 @@ $(document).ready(function () {
       }
 
       $('#card' + cardId).css({ transform: 'rotateY(180deg)' }); // 카드 뒤집기
-      console.log(selectedNum[cardId]);
-      console.log(selectedDir[cardId]);
 
       setTimeout(function () {
         openModal2(cardId); // 뒤집으면 모달 열기
@@ -52,7 +48,6 @@ $(document).ready(function () {
       // Display a message
       const messageText =
         card_lists[selectedNum[cardId]].description[selectedDir[cardId]];
-      console.log(messageText);
       const messageTextWithBr = messageText.replace(/\n/g, '<br>');
       $('#modal-message').css('font-size', '1.2rem');
       $('#modal-message').css('width', '70%');

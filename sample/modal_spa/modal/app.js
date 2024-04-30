@@ -3,9 +3,8 @@ $(function () {
 
   function openModal(messageList) {
     const modal = $('#modal');
-    // console.log('messageList:', messageList);
     $.get('/modal.modal.html', function (data) {
-      /modal.modal.html(data);
+      modal.modal.html(data);
       const messageText = messageList[nextButtonClickCount];
       const messageTextWithBr = messageText.replace(/\n/g, '<br>');
 

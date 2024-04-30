@@ -5,12 +5,12 @@ let lastScroll;
 let index;
 $(document).ready(() => {
   index = CARD_COUNT - 1;
-  $(`#${index}`).addClass("current-card");
+  $(`#${index}`).addClass('current-card');
   $(window).scrollTop(0);
 });
 // 스크롤 애니메이션
-$(window).on("scroll", () => {
-  let cardTranslate = parseInt($(".card").css("height").slice(0, -2)) * 3;
+$(window).on('scroll', () => {
+  let cardTranslate = parseInt($('.card').css('height').slice(0, -2)) * 3;
   let scroll = $(window).scrollTop();
   index = Math.floor(22 - scroll / SCROLL_SCOPE);
   // 인덱스 범위를 벗어난 경우 실행하지 않는다.
@@ -19,19 +19,17 @@ $(window).on("scroll", () => {
   }
 
   if (scroll - lastScroll < 0) {
-    console.log("스크롤 올릴 때");
-    $(".card").eq(index).css("transform", `translateY(0px)`);
-    $(".card")
+    $('.card').eq(index).css('transform', `translateY(0px)`);
+    $('.card')
       .eq(index - 1)
-      .removeClass("current-card");
-    $(".card").eq(index).addClass("current-card");
+      .removeClass('current-card');
+    $('.card').eq(index).addClass('current-card');
   } else {
-    console.log("스크롤 내릴 때");
-    $(".card").eq(index).css("transform", `translateY(${cardTranslate}px)`);
-    $(".card").eq(index).removeClass("current-card");
-    $(".card")
+    $('.card').eq(index).css('transform', `translateY(${cardTranslate}px)`);
+    $('.card').eq(index).removeClass('current-card');
+    $('.card')
       .eq(index - 1)
-      .addClass("current-card");
+      .addClass('current-card');
   }
 
   // 스크롤 조정 필요
@@ -45,25 +43,25 @@ $(window).on("scroll", () => {
 // 카드 선택 애니메이션
 let cnt = 0;
 const TRANSLATE = {
-  x: "175%",
-  y: ["-60%", "0%", "60%"],
+  x: '175%',
+  y: ['-60%', '0%', '60%'],
 };
-$(document).on("click", ".current-card", (e) => {
+$(document).on('click', '.current-card', (e) => {
   let id = e.target.id;
 
-  $(`#${id}`).removeClass("card current-card");
-  $(`#${id}`).css("left", "0px");
+  $(`#${id}`).removeClass('card current-card');
+  $(`#${id}`).css('left', '0px');
   $(`#${id}`).addClass(`selected-card`);
-  $(`#${id - 1}`).addClass("current-card");
+  $(`#${id - 1}`).addClass('current-card');
 
   $(`#${id}`).css(
-    "transform",
+    'transform',
     `translate(${TRANSLATE.x}, ${TRANSLATE.y[cnt]}) scale(0.4)`
   );
   index--;
   cnt++;
   if (cnt == 3) {
-    $(`#${id - 1}`).removeClass("current-card");
+    $(`#${id - 1}`).removeClass('current-card');
     return;
   }
 });

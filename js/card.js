@@ -27,7 +27,7 @@ var spreadCard = (distance, interval) => {
   for (let n = 0; n < CARD_COUNT; n++) {
     setTimeout(() => {
       for (let i = n; i < CARD_COUNT; i++) {
-        $(`#${i}`).css("left", `${distance + n * interval}px`);
+        $(`#${i}`).css('left', `${distance + n * interval}px`);
       }
     }, SPEED * (n + 1));
   }
@@ -35,7 +35,6 @@ var spreadCard = (distance, interval) => {
 
 /* spreadCard 간격 조정 함수 */
 var controlCardIntervalByWitdh = () => {
-  console.log(changingWindowSize);
   if (changingWindowSize) {
     return;
   }
@@ -50,7 +49,6 @@ var controlCardIntervalByWitdh = () => {
   }
 };
 var controlCardIntervalByHeight = () => {
-  console.log(changingWindowSize);
   if (changingWindowSize) {
     return;
   }
@@ -102,8 +100,8 @@ var lastScroll; // 스크롤 UP / DOWN을 구별하기 위한 변수
 var cnt = 0; // 클릭 이벤트 발생 횟수
 var TRANSLATE = {
   // 선택한 카드를 오른쪽 상단부터 하나씩 나열하기 위한 변수
-  x: "225%",
-  y: ["-70%", "0%", "70%"],
+  x: '225%',
+  y: ['-70%', '0%', '70%'],
 };
 
 // 선택된 카드 배열
