@@ -1,7 +1,9 @@
+
 <h1 align="center">
   하나타로
   <br>
 </h1>
+![test](https://github.com/Hana-FE-Team2/hana-tarot/assets/74089849/41c9993c-a999-4cc7-9e88-900980420d69)
 
 <h2>Environment</h2>
 <p>
