@@ -38,8 +38,6 @@ $(window).on("scroll", () => {
   lastScroll = scroll;
 });
 
-var changingWindowSize = false;
-
 // 카드 선택 애니메이션 (e.target.id로 동작)
 $(document).on("click", ".current-card", (e) => {
   let id = e.target.id; // 클릭 이벤트가 발생한 카드 번호

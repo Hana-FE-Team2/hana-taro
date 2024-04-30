@@ -14,8 +14,6 @@ cardbox.forEach((ele, idx) => {
   ele.children[0].style.backgroundImage = `url(${
     card_lists[selectedNum[idx]].url
   })`;
-  console.log(selectedNum[idx]);
-  console.log(selectedNum);
   if (selectedDir[idx] == 1) {
     ele.children[0].style.transform = "rotate(180deg)";
   }
@@ -25,10 +23,20 @@ descriptionBox.forEach((ele, idx) => {
   ele.children[0].innerText =
     card_lists[selectedNum[idx]].description[selectedDir[idx]];
 });
-console.log(selectedNum);
+var rotateArr = [];
+for (let i = 0; i < selectedDir.length; i++) {
+  if (selectedDir[i] == 1) {
+    rotateArr.push("rotate(180deg)");
+  } else {
+    rotateArr.push("rotate(0deg)");
+  }
+}
 $("#past-img").attr("src", `${card_lists[selectedNum[0]].url}`);
+$("#past-img").css("transform", `${rotateArr[0]}`);
 $("#current-img").attr("src", `${card_lists[selectedNum[1]].url}`);
+$("#current-img").css("transform", `${rotateArr[1]}`);
 $("#future-img").attr("src", `${card_lists[selectedNum[2]].url}`);
+$("#future-img").css("transform", `${rotateArr[2]}`);
 
 $("#past-text").html(card_lists[selectedNum[0]].description[selectedDir[0]]);
 $("#current-text").html(card_lists[selectedNum[1]].description[selectedDir[1]]);

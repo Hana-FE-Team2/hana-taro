@@ -16,7 +16,7 @@
 //     clearTimeout(this.hoverTimeout);
 //   });
 // });
-
+var changingWindowSize = false;
 /* 카드가 쌓여보이도록 조정하는 함수 */
 var DISTANCE = [-275, -225, -175, -125];
 var INTERVAL = [30, 25, 20, 15];
