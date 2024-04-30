@@ -18,7 +18,7 @@
 │   ├── hanat-04.css
 │   └── style.css
 │# 페이지 별 html
-├── hanat-01.html
+├── index.html
 ├── hanat-02.html
 ├── hanat-03.html
 ├── hanat-04.html
