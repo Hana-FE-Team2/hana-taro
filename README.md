@@ -1,7 +1,7 @@
 <div>
   <h2 align="center">Index</h2>
   <p align="center">
-    <a href="#repository-structure">프로젝트 구조</a> /
+    <a href="#프로젝트-구조">프로젝트 구조</a> /
     <a href="#how-to-start">How To Start</a> /
     <a href="#contributor">Contributor</a> /
     <a href="#how-to-contribute">How To Contribute</a> 
@@ -10,45 +10,38 @@
 
 <hr>
 
-## Repository Structure
+## 프로젝트 구조
 
 ```bash
 .
-├── css
+├── css # CSS 파일들이 위치한 폴더
 │   ├── hanat-04.css
 │   └── style.css
+│# 페이지 별 html
 ├── hanat-01.html
 ├── hanat-02.html
 ├── hanat-03.html
 ├── hanat-04.html
 ├── hanat-05.html
-├── img
-│   ├── cards
-│   ├── component
-│   │   ├── arrow.png
-│   │   ├── cardBack.jpg
-│   │   ├── cardFrame.png
-│   │   ├── cardPlate.jpg
-│   │   ├── descriptionFrame.png
-│   │   ├── hanaCardBackFit.png
-│   │   └── speechBubble.jpg
-│   └── main
-├── js
-│   ├── app.js
-│   ├── card.js
-│   ├── cards.js
+├── img # 이미지
+│   ├── cards # 타로 카드 이미지들이 위차한 폴더
+│   ├── component # 페이지 전체에서 사용되는 이미지들이 위치한 폴더
+│   └── main # 메인 페이지에서 사용되는 이미지들이 위치한 폴더
+├── js # 자바스크립트 파일들이 위치한 폴더
+│   ├── app.js # 페이지 전체에서 사용되는 자바스크립트 파일
+│   ├── card.js # 타로 카드 관련 자바스크립트 파일
+│   ├── cards.js # 타로 카드 데이터 파일
 │   ├── hanat-01.js
 │   ├── hanat-02.js
 │   ├── hanat-03.js
 │   ├── hanat-04.js
 │   ├── hanat-05.js
 │   └── modal.js
-├── modal
+├── modal # 모달 관련 html 파일들이 위치한 폴더
 │   ├── hanat-04-modal.html
 │   ├── modal-multi.html
 │   └── modal.html
-├── pages
-└── sample
+└── sample # 샘플 코드들이 위치한 폴더
     ├── card-flip
     ├── card-pack
     │   └── scroll-animation
