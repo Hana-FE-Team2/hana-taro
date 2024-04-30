@@ -2,9 +2,7 @@
   <h2 align="center">Index</h2>
   <p align="center">
     <a href="#프로젝트-구조">프로젝트 구조</a> /
-    <a href="#how-to-start">How To Start</a> /
-    <a href="#contributor">Contributor</a> /
-    <a href="#how-to-contribute">How To Contribute</a> 
+    <a href="#프로젝트-구동">프로젝트 구동</a> /
   </p>
 <div>
 
@@ -53,42 +51,19 @@
 
 ```
 
-## How To Start
+## 프로젝트 구동
 
-> **Prerequiste:**
+> **선행조건**
 >
-> 1. _installation of node_, the versions must be 16 or later for reliable execution
-> 2. Two files below should be located in the certain location
->
-> - **.env**: In the top level, same level with _.gitignore_ file
-> - **secretKey.js**: Under the _config_ folder, same level with _config.js_ file <br>
->
-> **You can get the files on our notion page!** https://www.notion.so/2c5644b064b14677bbedb58f07341afe?pvs=4
+> 1. Visual Studio Code 설치
+> 2. live server extension 설치
 
-> **※WARNNING※**: If there is a database connection error when running this project, there may be problem with Wi-Fi. Change the Wi-Fi.
+1. git clone
 
 ```bash
-# Install dependencies required to run project
-$ npm install
-
-# Run the app
-$ node app.js
+$ git clone https://github.com/Hana-FE-Team2/hana-tarot.git
 ```
 
-## Contributor
+2. Visual Studio Code으로 프로젝트 open
 
-|     | name       | main task         | github address                    | contact             |
-| --- | ---------- | ----------------- | --------------------------------- | ------------------- |
-|     | Gayeon Bae | Backend Developer | https://github.com/BaeGayeon      | ebgy918@gmail.com   |
-|     | Minjae Kim | Backend Developer | https://github.com/Minjae-vincent | alswo9853@gmail.com |
-|     |            |                   |                                   |                     |
-
-## How to contribute
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request.
-
-1. Fork the Project
-2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
-3. Commit your Changes (git commit -m 'Add some AmazingFeature')
-4. Push to the Branch (git push origin feature/AmazingFeature)
-5. Open a Pull Request
+3. live server로 html 파일 실행
