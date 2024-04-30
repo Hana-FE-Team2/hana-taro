@@ -150,8 +150,22 @@ body::-webkit-scrollbar {
 .current-card {
   cursor: pointer;
   transition: transform 2s ease, border 2s ease, left 2s ease;
-  border: 1.5px solid gold;
+  /* border: 1.5px solid gold; */
+  box-shadow: 0px 0px 40px 20px rgba(132, 52, 135, 0.9), 4px 4px 6px rgba(0, 0, 0, 0.2);
   transform: scale(1.1);
+  animation: current-card-ani 1.7s ease-in-out infinite;
+}
+
+@keyframes current-card-ani {
+  0% {
+    filter: saturate(1);
+  }
+  50% {
+    filter: saturate(2);
+  }
+  100% {
+    filter: saturate(1);
+  }
 }
 
 .selected-card {
