@@ -428,6 +428,10 @@ body::-webkit-scrollbar {
     width: 70px;
     height: 120px;
   }
+  .button-box .choice {
+    width: 128px;
+    height: 44px;
+  }
 }
 @media (min-height: 1080px) {
   .mainpage-frame {
@@ -441,6 +445,10 @@ body::-webkit-scrollbar {
   .mainpage-background > #mainpage-cards {
     width: 70px;
     height: 120px;
+  }
+  .button-box .choice {
+    width: 128px;
+    height: 44px;
   }
 }
 
@@ -457,6 +465,13 @@ body::-webkit-scrollbar {
     width: 53.8px;
     height: 93px;
   }
+  .button-box {
+    width: 207.6px;
+  }
+  .button-box .choice {
+    width: 98.4px;
+    height: 33px;
+  }
 }
 
 @media (max-height: 1080px) {
@@ -471,6 +486,13 @@ body::-webkit-scrollbar {
   .mainpage-background > #mainpage-cards {
     width: 53.8px;
     height: 93px;
+  }
+  .button-box {
+    width: 207.6px;
+  }
+  .button-box .choice {
+    width: 98.4px;
+    height: 33px;
   }
 }
 
@@ -488,6 +510,13 @@ body::-webkit-scrollbar {
     width: 41.3px;
     height: 71.5px;
   }
+  .button-box {
+    width: 159.7px;
+  }
+  .button-box .choice {
+    width: 75.6px;
+    height: 25.3px;
+  }
 }
 
 @media (max-height: 810px) {
@@ -504,6 +533,13 @@ body::-webkit-scrollbar {
     width: 41.3px;
     height: 71.5px;
   }
+  .button-box {
+    width: 159.7px;
+  }
+  .button-box .choice {
+    width: 75.6px;
+    height: 25.3px;
+  }
 }
 
 @media (max-width: 1280px) {
@@ -519,6 +555,17 @@ body::-webkit-scrollbar {
     width: 31.7px;
     height: 55px;
   }
+  .button-box {
+    width: 159.7px;
+  }
+  .button-box .choice {
+    width: 75.6px;
+    height: 25.3px;
+  }
+  /* .button-box .choice {
+    width: 58px;
+    height: 19.4px;
+  } */
 }
 
 @media (max-height: 720px) {
@@ -534,6 +581,17 @@ body::-webkit-scrollbar {
     width: 31.7px;
     height: 55px;
   }
+  .last-container .button-box {
+    width: 159.7px;
+  }
+  .button-box .choice {
+    width: 75.6px;
+    height: 25.3px;
+  }
+  /* .button-box .choice {
+    width: 58px;
+    height: 19.4px;
+  } */
 }
 /*  */
 @media all and ((min-width: 768px) and (max-width: 1023px)),
