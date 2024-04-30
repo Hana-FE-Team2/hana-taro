@@ -64,7 +64,7 @@ $(document).ready(function () {
 $(document).ready(function () {
   // Function to load content from next.html
   function moveToHome() {
-    $.get('index.html', function (data) {
+    $.get('hanat-01.html', function (data) {
       // Replace the content of the body with the content from next.html
       $('body').html(data);
     });
