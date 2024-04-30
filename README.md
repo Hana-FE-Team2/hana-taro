@@ -1,41 +1,7 @@
-
-<h1 align="center">
-  하나타로
-  <br>
-</h1>
-![test](https://github.com/Hana-FE-Team2/hana-tarot/assets/74089849/41c9993c-a999-4cc7-9e88-900980420d69)
-
-<h2>Environment</h2>
-<p>
-  <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
-  <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
-  <img src="https://img.shields.io/badge/vscode-007ACC?style=for-the-badge&logo=Visual Studio Code&logoColor=white">
-</p>
-
-<h2>Stack</h2>
-<p>
-  <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
-  <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white">
-  <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
-  <img src="https://img.shields.io/badge/socket.io-010101?style=for-the-badge&logo=socket.io&logoColor=white">
-  <img src="https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white">
-</p>
-
-<h2>Communication</h2>
-<p>
-  <img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=blue">
-  <img src="https://img.shields.io/badge/slack-4A154B?style=for-the-badge&logo=slack&logoColor=white">
-  <img src="https://img.shields.io/badge/kakaotalk-FFCD00?style=for-the-badge&logo=kakaotalk&logoColor=black">
-</p>
-
-![agricola](https://github.com/SW-Engineering-Team1/agricola_backend/assets/74089849/81d99d23-c7d9-4222-a642-1a8ad08c54ac)
-
-<hr>
-
 <div>
   <h2 align="center">Index</h2>
   <p align="center">
-    <a href="#repository-structure">Repository Structure</a> /
+    <a href="#repository-structure">프로젝트 구조</a> /
     <a href="#how-to-start">How To Start</a> /
     <a href="#contributor">Contributor</a> /
     <a href="#how-to-contribute">How To Contribute</a> 
