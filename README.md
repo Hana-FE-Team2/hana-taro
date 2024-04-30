@@ -14,49 +14,49 @@
 
 ```bash
 .
-├── README.md
-├── app.js
-├── config # Some configs for project
-│   ├── baseResponseStatus.js
-│   ├── config.js
-│   ├── response.js
-│   └── secretKey.js
-├── controllers # Controller which get requests from frontend
-│   ├── actionSocketController.js
-│   ├── gameSocketController.js
-│   ├── roomController.js
-│   ├── roomSocketController.js
-│   └── userController.js
-├── middlewares # For middlewares - In this case, for Sign up/in
-│   └── auth.js
-├── migrations # Migration files for backup using sequelize
-│   ├── 20230514164610-Users.js
-│   ├── 20230515074818-game_room.js
-│   └── 20230517152458-UserGameRoom.js
-├── models // Data models
-│   ├── Card.js
-│   ├── GameRoom.js
-│   ├── GameStatus.js
-│   ├── User.js
-│   ├── UserGameRoom.js
-│   └── index.js
-├── modules # Files and modules which are used entire project
-│   ├── jwt.js
-│   └── utility.js
-├── package-lock.json
-├── package.json
-├── pr_checklist.md
-├── readme_src
-│   └── agricola.gif
-├── routes
-│   ├── roomRoute.js
-│   └── userRoute.js
-├── services # Files where entire service logics in
-│   ├── gameService.js
-│   ├── roomService.js
-│   └── userService.js
-└── test # Files for unit test
-    └── test.js
+├── css
+│   ├── hanat-04.css
+│   └── style.css
+├── hanat-01.html
+├── hanat-02.html
+├── hanat-03.html
+├── hanat-04.html
+├── hanat-05.html
+├── img
+│   ├── cards
+│   ├── component
+│   │   ├── arrow.png
+│   │   ├── cardBack.jpg
+│   │   ├── cardFrame.png
+│   │   ├── cardPlate.jpg
+│   │   ├── descriptionFrame.png
+│   │   ├── hanaCardBackFit.png
+│   │   └── speechBubble.jpg
+│   └── main
+├── js
+│   ├── app.js
+│   ├── card.js
+│   ├── cards.js
+│   ├── hanat-01.js
+│   ├── hanat-02.js
+│   ├── hanat-03.js
+│   ├── hanat-04.js
+│   ├── hanat-05.js
+│   └── modal.js
+├── modal
+│   ├── hanat-04-modal.html
+│   ├── modal-multi.html
+│   └── modal.html
+├── pages
+└── sample
+    ├── card-flip
+    ├── card-pack
+    │   └── scroll-animation
+    │   └── style.css
+    ├── modal_spa
+    └── shuffle
+
+
 
 ```
 
