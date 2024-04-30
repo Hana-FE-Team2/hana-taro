@@ -414,7 +414,7 @@ body::-webkit-scrollbar {
   display: flex;
   justify-content: center;
 }
-/*  */
+
 @media (min-width: 1920px) {
   .mainpage-frame {
     width: 1920px;
@@ -427,10 +427,6 @@ body::-webkit-scrollbar {
   .mainpage-background > #mainpage-cards {
     width: 70px;
     height: 120px;
-  }
-  .button-box .choice {
-    width: 128px;
-    height: 44px;
   }
 }
 @media (min-height: 1080px) {
@@ -445,10 +441,6 @@ body::-webkit-scrollbar {
   .mainpage-background > #mainpage-cards {
     width: 70px;
     height: 120px;
-  }
-  .button-box .choice {
-    width: 128px;
-    height: 44px;
   }
 }
 
@@ -465,13 +457,6 @@ body::-webkit-scrollbar {
     width: 53.8px;
     height: 93px;
   }
-  .button-box {
-    width: 207.6px;
-  }
-  .button-box .choice {
-    width: 98.4px;
-    height: 33px;
-  }
 }
 
 @media (max-height: 1080px) {
@@ -486,13 +471,6 @@ body::-webkit-scrollbar {
   .mainpage-background > #mainpage-cards {
     width: 53.8px;
     height: 93px;
-  }
-  .button-box {
-    width: 207.6px;
-  }
-  .button-box .choice {
-    width: 98.4px;
-    height: 33px;
   }
 }
 
@@ -510,13 +488,6 @@ body::-webkit-scrollbar {
     width: 41.3px;
     height: 71.5px;
   }
-  .button-box {
-    width: 159.7px;
-  }
-  .button-box .choice {
-    width: 75.6px;
-    height: 25.3px;
-  }
 }
 
 @media (max-height: 810px) {
@@ -533,13 +504,6 @@ body::-webkit-scrollbar {
     width: 41.3px;
     height: 71.5px;
   }
-  .button-box {
-    width: 159.7px;
-  }
-  .button-box .choice {
-    width: 75.6px;
-    height: 25.3px;
-  }
 }
 
 @media (max-width: 1280px) {
@@ -555,17 +519,6 @@ body::-webkit-scrollbar {
     width: 31.7px;
     height: 55px;
   }
-  .button-box {
-    width: 159.7px;
-  }
-  .button-box .choice {
-    width: 75.6px;
-    height: 25.3px;
-  }
-  /* .button-box .choice {
-    width: 58px;
-    height: 19.4px;
-  } */
 }
 
 @media (max-height: 720px) {
@@ -581,19 +534,7 @@ body::-webkit-scrollbar {
     width: 31.7px;
     height: 55px;
   }
-  .last-container .button-box {
-    width: 159.7px;
-  }
-  .button-box .choice {
-    width: 75.6px;
-    height: 25.3px;
-  }
-  /* .button-box .choice {
-    width: 58px;
-    height: 19.4px;
-  } */
 }
-/*  */
 @media all and ((min-width: 768px) and (max-width: 1023px)),
   ((min-height: 541px) and (max-height: 640px)) {
   .card,
@@ -620,6 +561,15 @@ body::-webkit-scrollbar {
   .modal-bg {
     width: 500px;
     height: 200px;
+  }
+  .last-container .button-box {
+    width: 207.6px;
+    top: 80%;
+    left: 65%;
+  }
+  .button-box .choice {
+    width: 98.4px;
+    height: 33px;
   }
 }
 /* 해상도 ~ 767px */
@@ -654,6 +604,14 @@ body::-webkit-scrollbar {
     width: 20px;
     height: 20px;
   }
+  .last-container .button-box {
+    width: 159.7px;
+    left: 65%;
+  }
+  .button-box .choice {
+    width: 75.6px;
+    height: 33px;
+  }
 }
 /* 해상도 ~ 767px */
 @media all and (max-width: 575px), (max-height: 419px) {
@@ -687,5 +645,14 @@ body::-webkit-scrollbar {
     height: 15px;
     top: 70%;
     left: 75%;
+  }
+  .last-container .button-box {
+    width: 122.6px;
+    left: 65%;
+    top: 75%;
+  }
+  .button-box .choice {
+    width: 75.6px;
+    height: 33px;
   }
 }
