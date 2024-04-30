@@ -64,7 +64,6 @@ function playAudioWithStorage() {
   // 이전 페이지에서 저장된 오디오 재생 위치를 가져옵니다.
   let savedTime = localStorage.getItem("audioTime");
 
-  console.log(savedTime);
   // 이전 페이지에서 저장된 재생 위치가 있을 경우, 해당 위치로 이동합니다.
   if (savedTime !== null) {
     audio.currentTime = parseFloat(savedTime);
@@ -75,6 +74,5 @@ function playAudioWithStorage() {
 
 function saveAudioWithStorage() {
   let audio = $("#background-sound")[0];
-  console.log(audio.currentTime);
   localStorage.setItem("audioTime", audio.currentTime.toString());
 }

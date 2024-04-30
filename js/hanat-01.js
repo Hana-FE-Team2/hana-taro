@@ -1,4 +1,5 @@
 openedCard = [];
+localStorage.clear();
 playAudioWithStorage();
 // 입움직임
 window.onload = function () {
